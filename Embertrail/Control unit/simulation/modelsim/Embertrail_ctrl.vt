@@ -1,0 +1,158 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "01/31/2014 13:11:53"
+                                                                                
+// Verilog Test Bench template for design : Embertrail_ctrl
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+`define ADDR 	4'b0001
+`define ANDI	4'b0010
+`define ORI		4'b0011
+`define NOTI	4'b0100
+`define XORI 	4'b0101
+`define MVR  	4'b0110
+`define MVI 	4'b0111
+`define LDR		4'b1000
+`define LDA		4'b1001
+`define STR 	4'b1010
+`define PUSH 	4'b1011
+`define POP  	4'b1100
+`define STSP 	4'b1101
+`define JMP  	4'b1110
+`define BEQ  	4'b1111
+
+`define PAIR 1'b1
+`define SINGLE 1'b0
+`define IMMB 1'b1
+`define REGB 1'b0
+
+`define NOPS 16'b0
+`define NOPP 31'b0
+
+`timescale 1 ns/ 1 ns
+module Embertrail_ctrl_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg [31:0] IR;
+reg [15:0] PC;
+reg clock;
+reg reset;
+//small pseudo instruciton memory
+reg [15:0] instMem [15:0];
+
+//small pseudo data memory
+reg [15:0] dataMem [15:0];
+
+//data and instruction bus
+reg [31:0]   
+  dataDataBus;
+
+//data and instruction bus control
+reg
+  instMemEn,
+  instMemRW,
+  dataBus1En,
+  dataBus2En,
+  dataBus1RW,
+  dataBus2RW;
+  
+// wires 
+//select object from memory that are then laoded into busses/registers
+wire [31:0] dataAddrBus;
+wire [15:0] instAddrBus;
+          
+// wires                                               
+initial //set clock
+ begin: clockgen
+    clock = 0;
+    forever #5
+      clock = !clock;
+  end
+
+// assign statements (if any)                          
+Embertrail_top i1 (
+// port map - connection between master ports and signals/registers   
+  .iIR(IR),
+  .iPC(16'b0000000000000000),
+  .iClock(clock)
+  .iDataDataBus(dataDataBus),   //data goes out  
+  .oDataAddrBus(dataAddrBus),  //address comes in
+  .oInstAddrBus(instAddrBus),  
+  .oDataMem1RW(instMemRW),         //read/write L/H
+  .oDataMem2RW(instMemRW),
+);
+
+
+initial    
+begin : reg_init_l                                                 
+// code that executes only once                        
+// insert code here --> begin                          
+reg[4:0] i;
+
+for (i = 0 ; i <= 30 ; i = i+1) 
+begin
+  #20 IR = {`IMMB, (5'b11110-i), (5'b11110-i), `MVR, `PAIR, `IMMB, i, i, `MVR};  
+end
+/*
+for (i = 0 ; i <= 30 ; i = i+1) 
+begin
+  #10 IR = {16'b0, `SINGLE, `IMMB, i, i, `ADDR};  
+end
+
+for (i = 0 ; i <= 30 ; i = i+1) 
+begin
+  #10 IR = {16'b0, `SINGLE, `REGB, i, i, `ADDR};  
+end
+*/
+
+#10 IR = {16'b0101010101010101, `PAIR, `IMMB, 5'b01000, 5'b00011, `BEQ};
+#10 IR = `NOPP;
+#10 IR = {16'b0000000000000011, `PAIR, `IMMB, 5'b00011, 5'b00011, `BEQ};
+#10 IR = `NOPP;
+// --> end                                             
+$display("Running testbench");                       
+end                                                    
+always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+begin   :    test_l                                            
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+//#20
+//IR =  {`SINGLE, `REGB, 5'b00011, 5'b00100, `MVR, `SINGLE, `IMMB, 5'b01001, 5'b00001, `MVR};
+//#20
+//IR = `NOP;
+//#10
+//IR =  {`SINGLE, `REGB, 5'b00011, 5'b00100, `MVR, `SINGLE, `IMMB, 5'b00110, 5'b00010, `MVR};
+//#20
+//IR =  {`SINGLE, `REGB, 5'b00011, 5'b00100, `MVR, `SINGLE, `REGB, 5'b00010, 5'b00001, `ADDR};  
+//#10
+//IR = {`NOP};                                                     
+
+
+
+@eachvec;                                              
+// --> end                                             
+end                                                    
+endmodule
+
