@@ -60,7 +60,7 @@ wire [15:0] PC;
 reg clock;
 reg reset;
 //small pseudo instruciton memory
-reg [15:0] instMem [15:0];
+reg [15:0] instMem [31:0];
 
 //small pseudo data memory
 reg [15:0] dataMem [31:0];
@@ -121,6 +121,34 @@ begin : reg_init_l
 // code that executes only once                        
 // insert code here --> begin                          
 reg[6:0] i;
+
+//Big boy test -Load in two values, determine if they are equal, increment the lower one until they are, then store them
+//
+  dataMem[15] = 16'h000A;
+  dataMem[16] = 16'h0001;
+  instMem[0] = {`PAIR, `IMMB,   (5'h00), (5'h01), `LDA}; //load data address 15 into r1
+  instMem[1] = 16'h000F;
+  instMem[2] = {`PAIR, `IMMB,   (5'h00), (5'h02), `LDA};  //load data address 16 into r2
+  instMem[3] = 16'h0010;  
+  instMem[4] = `NOPS;
+  instMem[5] = { `PAIR, `REGB,  (5'h01), (5'h03), `MVR};  //save the address in r3
+  instMem[6] = {`SINGLE,`REGB,  (5'h02), (5'h04), `MVR};  //save the address in r4
+  instMem[7] = {`PAIR,   `IMMB,   (5'h00), (5'h01), `LDR}; //read address from r1
+  instMem[8] = {`SINGLE, `IMMB,   (5'h00), (5'h02), `LDR}; //read address from r2
+  instMem[9] = {`PAIR, `REGB,   (5'h02), (5'h01), `BEQ}; //does r1 = r2?
+  instMem[10] = 16'h000E; // if it does jump to end of program
+  instMem[11] = {`SINGLE, `IMMB, (5'h01), (5'h02), `ADDR}; //inc r2
+  instMem[12] = {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //check again
+  instMem[13] = 16'h0009;
+  instMem[14] = {`SINGLE,  `IMMB, (5'h0F), (5'h01), `ADDR}; //add something to r1 to confirm store
+  instMem[15] = {`SINGLE, `REGB, (5'h02), (5'h04), `STR}; // r4 = 16, r2 = 10  
+  instMem[16] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
+  instMem[17] = `NOPS;
+ //end of big boy test 
+  
+  
+
+/*
 //LDA load + store test
   dataMem[22] = 16'hff11;
   instMem[0] = {`PAIR, `IMMB,   (5'h00), (5'h1A), `LDA}; //place addres value 0x0010 -> r26
@@ -132,6 +160,7 @@ reg[6:0] i;
   instMem[6] = `NOPS;
   instMem[7] = {`PAIR, `IMMB,   (5'h00), (5'h0A), `LDR}; //read address from r10
   //instMem[4] = {`SINGLE, `IMMB, (5'h1f), (5'h1A), `STR}; //place value 0x1f in the addres of r26
+  */
  //BEQ test 
  /*
  instMem[0] =   { `PAIR, `IMMB,  (5'h10), (5'h0A), `MVR};  //set r10 to 16

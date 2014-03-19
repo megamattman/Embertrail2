@@ -18,16 +18,16 @@ Z3 o-vlog01compat -work work -O0
 !i10b 1
 !s100 ja6KO]0SiK=RbCMeIJhlX2
 !s85 0
-!s108 1395254189.461000
+!s108 1395258676.776000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v|
 !s101 -O0
 !s92 -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0
 vEmbertrail_ctrl
-IKJ8Bn4X`LTRiPiETBl4kO0
+II>=AE6mP9_UWeVUb2LWU`2
 VHgCKC_jl<GAka^><FO7kG3
 R1
-w1395254064
+w1395257670
 8C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v
 FC:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v
 L0 36
@@ -37,18 +37,18 @@ r1
 R3
 n@embertrail_ctrl
 !i10b 1
-!s100 NXz<eB2SFdk6Fh^<8na3o3
+!s100 bIA^SdBC61mD@`aYRAz9=0
 !s85 0
-!s108 1395254189.545000
+!s108 1395258676.890000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v|
 !s101 -O0
 !s92 -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0
 vEmbertrail_ctrl_vlg_tst
-IkU18ZDbDJm9]@?HQID6`L1
+IJHjJjzR9Ha>51:9Yn7EW^2
 V4TV2ncFQNPFg@laGA44Q]0
 R1
-w1395253452
+w1395258666
 8C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt
 FC:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt
 L0 53
@@ -58,9 +58,9 @@ r1
 R3
 n@embertrail_ctrl_vlg_tst
 !i10b 1
-!s100 DfGe:TKVYl5XIY[^`Y2c41
+!s100 7VRR81T`c<@RcZD2jc48:3
 !s85 0
-!s108 1395254189.680000
+!s108 1395258677.116000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt|
 !s101 -O0
@@ -81,7 +81,7 @@ n@embertrail_top
 !i10b 1
 !s100 _heB4KFhN`Vh7@@2P_;?Q3
 !s85 0
-!s108 1395254189.792000
+!s108 1395258677.274000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v|
 !s101 -O0
@@ -100,7 +100,7 @@ R2
 r1
 !s85 0
 31
-!s108 1395254189.909000
+!s108 1395258677.399000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v|
 !s101 -O0

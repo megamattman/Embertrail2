@@ -88,77 +88,413 @@ vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
 # Loading work.Embertrail_ctrl
 # Loading work.register_file
 # Loading work.alu
-# ** Error: (vsim-3053) C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(117): Illegal output or inout port connection for "port 'oDataDataBus'".
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# Error loading design
-# Error: Error loading design 
-#        Pausing macro execution 
-# MACRO ./Embertrail_ctrl_run_msim_rtl_verilog.do PAUSED at line 15
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl
-# 
-# Top level modules:
-# 	Embertrail_ctrl
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_top
-# 
-# Top level modules:
-# 	Embertrail_top
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module register_file
-# 
-# Top level modules:
-# 	register_file
-vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
-# vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst 
-# Loading work.Embertrail_ctrl_vlg_tst
-# Loading work.Embertrail_top
-# Loading work.Embertrail_ctrl
-# Loading work.register_file
-# Loading work.alu
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/dataMem \
-sim:/Embertrail_ctrl_vlg_tst/dataDataBusOut \
-sim:/Embertrail_ctrl_vlg_tst/dataAddrBus \
-sim:/Embertrail_ctrl_vlg_tst/dataDataBusIn
+sim:/Embertrail_ctrl_vlg_tst/PC
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: Matt  Hostname: MATTS-PC  ProcessID: 816
 # 
-#           Attempting to use alternate WLF file "./wlft5bmz9d".
+#           Attempting to use alternate WLF file "./wlftfyss5g".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft5bmz9d
+#           Using alternate file: ./wlftfyss5g
 # 
 run
 # Running testbench
 run
+run
+run
+run
+run
+run
+restart
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
+run
+# Running testbench
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+restart
+run
+# Running testbench
+run
+run
+run
+run
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+run
+run
+run
+run
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+run
+run
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/dataMem
+restart
+run
+# Running testbench
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/memData1Addr \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/memData2Addr
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A1/oAluResult
+add wave -position insertpoint sim:/Embertrail_ctrl_vlg_tst/i1/i1/A2/*
+restart
+run
+# Running testbench
+run
+run
+run
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu2Op \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu2OpA
+restart
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu1Op \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu2Op
 restart
 run
 # Running testbench
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/data1MemRW \
-sim:/Embertrail_ctrl_vlg_tst/data2MemRW \
-sim:/Embertrail_ctrl_vlg_tst/data1BusEn \
-sim:/Embertrail_ctrl_vlg_tst/data2BusEn
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1OpCode \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2OpCode
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1OpA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1OpB \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2OpA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2OpB
+restart
+run
+# Running testbench
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+restart
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/instMem
+restart
+run
+# Running testbench
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/instMem
+run
+run
+run
+run
+run
 vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module alu
@@ -235,17 +571,17 @@ restart
 # Loading work.alu
 run
 # Running testbench
-add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1MemRW
-add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1Mem
-add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/memData1Addr
 restart
 run
 # Running testbench
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1AReadData
+sim:/Embertrail_ctrl_vlg_tst/dataAddrBus \
+sim:/Embertrail_ctrl_vlg_tst/dataDataBusIn
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2Mem
 restart
 run
 # Running testbench
@@ -288,7 +624,11 @@ restart
 run
 # Running testbench
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/oDataAddrBus
+sim:/Embertrail_ctrl_vlg_tst/data2BusEn \
+sim:/Embertrail_ctrl_vlg_tst/data2MemRW
+restart
+run
+# Running testbench
 vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module alu
@@ -342,7 +682,8 @@ vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail
 vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_ctrl_vlg_tst
-# ** Error: C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(125): near "11": Illegal digit for specified base in numeric constant.
+# ** Error: C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(145): (vlog-2730) Undefined variable: 'NOPS'.
+# 
 # C:/altera/13.1/modelsim_ase/win32aloem/vlog failed.
 vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -386,36 +727,6 @@ vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2
 # 
 # Top level modules:
 # 	register_file
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl
-# 
-# Top level modules:
-# 	Embertrail_ctrl
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_top
-# 
-# Top level modules:
-# 	Embertrail_top
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module register_file
-# 
-# Top level modules:
-# 	register_file
 restart
 # Loading work.Embertrail_ctrl_vlg_tst
 # Loading work.Embertrail_top
@@ -424,94 +735,23 @@ restart
 # Loading work.alu
 run
 # Running testbench
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl
-# 
-# Top level modules:
-# 	Embertrail_ctrl
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_top
-# 
-# Top level modules:
-# 	Embertrail_top
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module register_file
-# 
-# Top level modules:
-# 	register_file
-restart
-# Loading work.Embertrail_ctrl_vlg_tst
-# Loading work.Embertrail_top
-# Loading work.Embertrail_ctrl
-# Loading work.register_file
-# Loading work.alu
-restart
-run
-# Running testbench
-run
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/PC
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A2/iOperandA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A2/iOperandB
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/rfRead2A
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/rfReadPort2A
 restart
 run
 # Running testbench
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2AData \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2BData
 restart
 run
 # Running testbench
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl
-# 
-# Top level modules:
-# 	Embertrail_ctrl
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_top
-# 
-# Top level modules:
-# 	Embertrail_top
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module register_file
-# 
-# Top level modules:
-# 	register_file
 restart
-# Loading work.Embertrail_ctrl_vlg_tst
-# Loading work.Embertrail_top
-# Loading work.Embertrail_ctrl
-# Loading work.register_file
-# Loading work.alu
-run
-# Running testbench
 vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module alu

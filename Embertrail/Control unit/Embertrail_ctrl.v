@@ -290,7 +290,7 @@ begin : instDecode_l
 	 `STR:
 	    begin
 		 alu1Op = `ALU_ADD;
-		 inst1RegWB = 1'b1;
+		 //inst1RegWB = 1'b1;
 		 noAlu1 = 1;
 		 inst1Mem = 1;
 		 inst1MemRW =1;
@@ -419,6 +419,7 @@ always@* begin
   noAlu2  =0;  
   rfRead2A = 0;
   inst2StackOp = 0;
+  inst2Mem = 0;
   memData2Addr = 0;
 //end initilisation
   if (dualInst & ~extendedInst) begin
@@ -465,13 +466,16 @@ always@* begin
 	     begin
 		    noAlu2 = 1;
 	 	    inst2RegWB = 1'b1;
-	       alu2Op = `ALU_ADD;	     
+	       alu2Op = `ALU_ADD;	
+          inst2Mem = 1;			 
 	     end
 	   `STR:
 	      begin
 			  noAlu2 = 1;
 	 	     alu2Op = `ALU_ADD;
-	 	     inst2RegWB = 1'b1;
+		     inst2Mem = 1;
+		     inst2MemRW =1;
+	 	     //inst2RegWB = 1'b1;
 	      end
 	   `PUSH:
 	      begin
