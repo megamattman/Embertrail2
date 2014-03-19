@@ -1,5 +1,5 @@
 Flow report for Embertrail_ctrl
-Mon Feb 24 17:56:36 2014
+Wed Mar 19 14:50:53 2014
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Mon Feb 24 17:56:36 2014      ;
+; Flow Status                        ; Successful - Wed Mar 19 14:50:53 2014      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; Embertrail_ctrl                            ;
 ; Top-level Entity Name              ; Embertrail_top                             ;
 ; Family                             ; Cyclone III                                ;
 ; Device                             ; EP3C16F484C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 0                                          ;
-;     Total combinational functions  ; 0                                          ;
-;     Dedicated logic registers      ; 0                                          ;
-; Total registers                    ; 0                                          ;
-; Total pins                         ; 150                                        ;
+; Total logic elements               ; 2,830                                      ;
+;     Total combinational functions  ; 2,318                                      ;
+;     Dedicated logic registers      ; 1,040                                      ;
+; Total registers                    ; 1040                                       ;
+; Total pins                         ; 134                                        ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/24/2014 17:56:35 ;
+; Start date & time ; 03/19/2014 14:50:41 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Embertrail_ctrl     ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value   ; Entity Name    ; Section Id     ;
 +--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 207458815608901.139326459502336        ; --              ; --             ; --             ;
+; COMPILER_SIGNATURE_ID                ; 207458815608901.139524064106180        ; --              ; --             ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --              ; --             ; ctrl_test      ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ctrl_test                              ; --              ; --             ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --              ; --             ; eda_simulation ;
@@ -102,8 +102,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:01     ; 1.0                     ; 456 MB              ; 00:00:01                           ;
-; Total                ; 00:00:01     ; --                      ; --                  ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 472 MB              ; 00:00:12                           ;
+; Total                ; 00:00:11     ; --                      ; --                  ; 00:00:12                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

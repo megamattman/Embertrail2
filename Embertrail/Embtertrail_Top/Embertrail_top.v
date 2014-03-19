@@ -2,7 +2,7 @@
 
 module Embertrail_top(
 input wire iClock,
-input wire [31:0] iPC,
+input wire [15:0] iPC,
 input wire [31:0] iIR,
 input wire iReset,
 

@@ -11,34 +11,32 @@
 # ** Warning: Copied C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control\ unit {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control\ unit {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_ctrl
-# ** Warning: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(290): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
 # 
 # Top level modules:
 # 	Embertrail_ctrl
-# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile/registerFile.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module register_file
 # 
 # Top level modules:
 # 	register_file
-# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU/alu.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_top
 # 
 # Top level modules:
 # 	Embertrail_top
+# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control\ unit/simulation/modelsim {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Top level modules:
+# 	alu
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control\ unit/simulation/modelsim {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_ctrl_vlg_tst
 # 
@@ -47,39 +45,37 @@
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiii_ver -L rtl_work -L work -voptargs="+acc"  ctrl_test
 # vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps ctrl_test 
-# ** Error: (vsim-3170) Could not find 'C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/rtl_work.ctrl_test'.
+# ** Error: (vsim-3170) Could not find 'C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/rtl_work.ctrl_test'.
 # 
 # Error loading design
 # Error: Error loading design 
 #        Pausing macro execution 
 # MACRO ./Embertrail_ctrl_run_msim_rtl_verilog.do PAUSED at line 15
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU/alu.v
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v}
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_ctrl
-# ** Warning: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(290): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
 # 
 # Top level modules:
 # 	Embertrail_ctrl
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_ctrl_vlg_tst
 # 
 # Top level modules:
 # 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_top
 # 
 # Top level modules:
 # 	Embertrail_top
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile/registerFile.v
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module register_file
 # 
@@ -92,792 +88,405 @@ vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
 # Loading work.Embertrail_ctrl
 # Loading work.register_file
 # Loading work.alu
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(79): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(5).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# ** Warning: (vsim-3017) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Too few port connections. Expected 14, found 3.
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(28).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oNPC'.
-# 
-onerror {resume}
-quietly WaveActivateNextPane {} 0
-add wave -noupdate /Embertrail_ctrl_vlg_tst/clock
-add wave -noupdate /Embertrail_ctrl_vlg_tst/IR
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/PC
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: Matt  Hostname: MATTS-PC  ProcessID: 816
 # 
-#           Attempting to use alternate WLF file "./wlft9q3xgr".
+#           Attempting to use alternate WLF file "./wlft1fsdiz".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft9q3xgr
+#           Using alternate file: ./wlft1fsdiz
 # 
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1BImm
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/dualInst
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/NPCOut
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead1AData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead1BData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2AData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2BData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchTaken
-add wave -noupdate -expand /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
-add wave -noupdate -radix unsigned -childformat {{{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} -radix unsigned}} -expand -subitemconfig {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} {-radix unsigned}} /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {25 ns} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 322
-configure wave -valuecolwidth 202
-configure wave -justifyvalue left
-configure wave -signalnamewidth 0
-configure wave -snapdistance 10
-configure wave -datasetprefix 0
-configure wave -rowmargin 4
-configure wave -childrowmargin 2
-configure wave -gridoffset 0
-configure wave -gridperiod 1
-configure wave -griddelta 40
-configure wave -timeline 0
-configure wave -timelineunits ns
-update
-WaveRestoreZoom {0 ns} {94 ns}
-
-
 run
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU/alu.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl
-# ** Warning: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(290): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# 
-# Top level modules:
-# 	Embertrail_ctrl
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_top
-# 
-# Top level modules:
-# 	Embertrail_top
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile/registerFile.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module register_file
-# 
-# Top level modules:
-# 	register_file
-vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
-# vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst 
-# Loading work.Embertrail_ctrl_vlg_tst
-# Loading work.Embertrail_top
-# Loading work.Embertrail_ctrl
-# Loading work.register_file
-# Loading work.alu
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(79): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(5).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# ** Warning: (vsim-3017) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Too few port connections. Expected 14, found 3.
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(28).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oNPC'.
-# 
-# WARNING: No extended dataflow license exists
-onerror {resume}
-quietly WaveActivateNextPane {} 0
-add wave -noupdate /Embertrail_ctrl_vlg_tst/clock
-add wave -noupdate /Embertrail_ctrl_vlg_tst/IR
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1BImm
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/dualInst
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/NPCOut
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead1AData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead1BData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2AData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2BData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchTaken
-add wave -noupdate -expand /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
-add wave -noupdate -radix unsigned -childformat {{{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} -radix unsigned}} -expand -subitemconfig {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} {-radix unsigned}} /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {25 ns} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 322
-configure wave -valuecolwidth 202
-configure wave -justifyvalue left
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: Matt  Hostname: MATTS-PC  ProcessID: 816
-# 
-#           Attempting to use alternate WLF file "./wlfte6wbyq".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlfte6wbyq
-# 
-configure wave -signalnamewidth 0
-configure wave -snapdistance 10
-configure wave -datasetprefix 0
-configure wave -rowmargin 4
-configure wave -childrowmargin 2
-configure wave -gridoffset 0
-configure wave -gridperiod 1
-configure wave -griddelta 40
-configure wave -timeline 0
-configure wave -timelineunits ns
-update
-WaveRestoreZoom {0 ns} {94 ns}
-
-
+# Running testbench
 run
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/ALU/alu.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module alu
-# 
-# Top level modules:
-# 	alu
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl
-# ** Warning: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(294): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# 
-# Top level modules:
-# 	Embertrail_ctrl
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_top
-# 
-# Top level modules:
-# 	Embertrail_top
-vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/RegisterFile/registerFile.v
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module register_file
-# 
-# Top level modules:
-# 	register_file
-vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
-# vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst 
-# Loading work.Embertrail_ctrl_vlg_tst
-# Loading work.Embertrail_top
-# Loading work.Embertrail_ctrl
-# Loading work.register_file
-# Loading work.alu
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(79): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(5).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# ** Warning: (vsim-3017) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Too few port connections. Expected 14, found 3.
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(28).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oNPC'.
-# 
-# WARNING: No extended dataflow license exists
-onerror {resume}
-quietly WaveActivateNextPane {} 0
-add wave -noupdate /Embertrail_ctrl_vlg_tst/clock
-add wave -noupdate /Embertrail_ctrl_vlg_tst/IR
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1BImm
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/dualInst
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/NPCOut
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead1AData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead1BData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2AData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/oRead2BData
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchTaken
-add wave -noupdate -expand /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
-add wave -noupdate -radix unsigned -childformat {{{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} -radix unsigned}} -expand -subitemconfig {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} {-radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} {-radix unsigned}} /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {25 ns} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 322
-configure wave -valuecolwidth 202
-configure wave -justifyvalue left
-configure wave -signalnamewidth 0
-configure wave -snapdistance 10
-configure wave -datasetprefix 0
-configure wave -rowmargin 4
-configure wave -childrowmargin 2
-configure wave -gridoffset 0
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: Matt  Hostname: MATTS-PC  ProcessID: 816
-# 
-#           Attempting to use alternate WLF file "./wlftc5h8yv".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlftc5h8yv
-# 
-configure wave -gridperiod 1
-configure wave -griddelta 40
-configure wave -timeline 0
-configure wave -timelineunits ns
-update
-WaveRestoreZoom {0 ns} {94 ns}
-
-
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
 run
 restart
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(79): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(5).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# ** Warning: (vsim-3017) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Too few port connections. Expected 14, found 3.
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(28).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oNPC'.
-# 
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu2Result
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A1/aluOutput_q
 add wave -position insertpoint  \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu1Op \
-sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu2Op
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1OpA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1OpB
+run
+# Running testbench
+run
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/noAlu1
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1OpCode \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2OpCode
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/iIR
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/rfReadPort1A \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/rfReadPort2A
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/rfRead1A \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/rfRead2A
+restart
+run
+# Running testbench
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+restart
+run
+# Running testbench
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+restart
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWB \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2RegWB
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWriteSel \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2RegWriteSel
+restart
+run
+# Running testbench
+run
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A1/iOperandA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A1/iOperandB \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A1/iOperation \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A1/aluOutput_q
+restart
+run
+# Running testbench
+run
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+restart
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A2/iOperandA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A2/iOperandB \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A2/iOperation \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/A2/aluOutput_q
+restart
+run
+# Running testbench
+run
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+restart
+run
+# Running testbench
+restart
+run
+# Running testbench
+restart
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
+run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2OpA \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/inst2OpB
 add wave -position insertpoint  \
 sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu2OpA \
 sim:/Embertrail_ctrl_vlg_tst/i1/i1/alu2OpB
+restart
 run
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/wave.do}
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/rfRead2A
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Embertrail_ctrl_vlg_tst
 # 
 # Top level modules:
 # 	Embertrail_ctrl_vlg_tst
-vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
-# vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst 
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
 # Loading work.Embertrail_ctrl_vlg_tst
 # Loading work.Embertrail_top
 # Loading work.Embertrail_ctrl
 # Loading work.register_file
 # Loading work.alu
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(79): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(5).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# ** Warning: (vsim-3017) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Too few port connections. Expected 14, found 3.
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(28).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oNPC'.
-# 
-# WARNING: No extended dataflow license exists
-onerror {resume}
-quietly WaveActivateNextPane {} 0
-add wave -noupdate /Embertrail_ctrl_vlg_tst/clock
-add wave -noupdate /Embertrail_ctrl_vlg_tst/IR
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1BImm
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: Matt  Hostname: MATTS-PC  ProcessID: 816
-# 
-#           Attempting to use alternate WLF file "./wlftq86vkf".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlftq86vkf
-# 
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/dualInst
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/NPCOut
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchTaken
-add wave -noupdate -expand /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
-add wave -noupdate -radix unsigned -childformat {{{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} -radix unsigned}} -expand -subitemconfig {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} {-height 15 -radix unsigned}} /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ns} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 322
-configure wave -valuecolwidth 202
-configure wave -justifyvalue left
-configure wave -signalnamewidth 0
-configure wave -snapdistance 10
-configure wave -datasetprefix 0
-configure wave -rowmargin 4
-configure wave -childrowmargin 2
-configure wave -gridoffset 0
-configure wave -gridperiod 1
-configure wave -griddelta 40
-configure wave -timeline 0
-configure wave -timelineunits ns
-update
-WaveRestoreZoom {0 ns} {94 ns}
-
-
+restart
 run
+# Running testbench
+add wave -position insertpoint  \
+sim:/Embertrail_ctrl_vlg_tst/i1/i1/noAlu2
+restart
 run
-run
-run
-run
-run
-run
-run
-run
+# Running testbench
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl
+# 
+# Top level modules:
+# 	Embertrail_ctrl
+vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_ctrl_vlg_tst
+# 
+# Top level modules:
+# 	Embertrail_ctrl_vlg_tst
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Embertrail_top
+# 
+# Top level modules:
+# 	Embertrail_top
+vlog -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile -O0 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+restart
+# Loading work.Embertrail_ctrl_vlg_tst
+# Loading work.Embertrail_top
+# Loading work.Embertrail_ctrl
+# Loading work.register_file
+# Loading work.alu
 run
 # Running testbench
 run
 run
 run
 run
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
-# vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst 
-# Loading work.Embertrail_ctrl_vlg_tst
-# Loading work.Embertrail_top
-# Loading work.Embertrail_ctrl
-# Loading work.register_file
-# Loading work.alu
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(79): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(5).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# ** Warning: (vsim-3017) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Too few port connections. Expected 14, found 3.
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(28).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oNPC'.
-# 
-# WARNING: No extended dataflow license exists
-onerror {resume}
-quietly WaveActivateNextPane {} 0
-add wave -noupdate /Embertrail_ctrl_vlg_tst/clock
-add wave -noupdate /Embertrail_ctrl_vlg_tst/IR
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1BImm
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/dualInst
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/NPCOut
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchTaken
-add wave -noupdate -expand /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
-add wave -noupdate -radix unsigned -childformat {{{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} -radix unsigned}} -expand -subitemconfig {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} {-height 15 -radix unsigned}} /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ns} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 322
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: Matt  Hostname: MATTS-PC  ProcessID: 816
-# 
-#           Attempting to use alternate WLF file "./wlftttn5h3".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlftttn5h3
-# 
-configure wave -valuecolwidth 202
-configure wave -justifyvalue left
-configure wave -signalnamewidth 0
-configure wave -snapdistance 10
-configure wave -datasetprefix 0
-configure wave -rowmargin 4
-configure wave -childrowmargin 2
-configure wave -gridoffset 0
-configure wave -gridperiod 1
-configure wave -griddelta 40
-configure wave -timeline 0
-configure wave -timelineunits ns
-update
-WaveRestoreZoom {0 ns} {94 ns}
-
-
-run
-vlog -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim} -O0 {C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Embertrail_ctrl_vlg_tst
-# 
-# Top level modules:
-# 	Embertrail_ctrl_vlg_tst
-vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst
-# vsim -voptargs=+acc work.Embertrail_ctrl_vlg_tst 
-# Loading work.Embertrail_ctrl_vlg_tst
-# Loading work.Embertrail_top
-# Loading work.Embertrail_ctrl
-# Loading work.register_file
-# Loading work.alu
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt(79): [PCDPC] - Port size (32 or 32) does not match connection size (16) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(5).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1
-# ** Warning: (vsim-3017) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Too few port connections. Expected 14, found 3.
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3015) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'iPC'. The port definition is at: C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Control unit/Embertrail_ctrl.v(28).
-# 
-#         Region: /Embertrail_ctrl_vlg_tst/i1/i1
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'iMemoryReadData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteData2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWriteAddress2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryWrite2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead1'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oMemoryRead2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/Matt/Documents/GitHub/embertrail/Embertrail/Embtertrail_Top/Embertrail_top.v(15): [TFMPC] - Missing connection for port 'oNPC'.
-# 
-# WARNING: No extended dataflow license exists
-onerror {resume}
-quietly WaveActivateNextPane {} 0
-add wave -noupdate /Embertrail_ctrl_vlg_tst/clock
-add wave -noupdate /Embertrail_ctrl_vlg_tst/IR
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1BImm
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/dualInst
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/inst1RegWB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/NPCOut
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iReadPort2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iWritePort2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel1B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2A
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegReadSel2B
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite1
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/iRegWrite2
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData1B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2A_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/RF/readData2B_o
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu1Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2Op
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2OpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2OpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/alu2Result
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpA
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchOpB
-add wave -noupdate /Embertrail_ctrl_vlg_tst/i1/i1/branchTaken
-add wave -noupdate -expand /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_d
-add wave -noupdate -radix unsigned -childformat {{{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} -radix unsigned} {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} -radix unsigned}} -expand -subitemconfig {{/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[31]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[30]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[29]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[28]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[27]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[26]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[25]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[24]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[23]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[22]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[21]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[20]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[19]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[18]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[17]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[16]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[15]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[14]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[13]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[12]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[11]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[10]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[9]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[8]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[7]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[6]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[5]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[4]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[3]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[2]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[1]} {-height 15 -radix unsigned} {/Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q[0]} {-height 15 -radix unsigned}} /Embertrail_ctrl_vlg_tst/i1/i1/RF/r_q
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ns} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 322
-configure wave -valuecolwidth 202
-configure wave -justifyvalue left
-configure wave -signalnamewidth 0
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: Matt  Hostname: MATTS-PC  ProcessID: 816
-# 
-#           Attempting to use alternate WLF file "./wlftqayh3i".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlftqayh3i
-# 
-configure wave -snapdistance 10
-configure wave -datasetprefix 0
-configure wave -rowmargin 4
-configure wave -childrowmargin 2
-configure wave -gridoffset 0
-configure wave -gridperiod 1
-configure wave -griddelta 40
-configure wave -timeline 0
-configure wave -timelineunits ns
-update
-WaveRestoreZoom {0 ns} {94 ns}
-
-
 run
 run
 run
@@ -885,5 +494,14 @@ run
 run
 run
 run
-# Running testbench
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
 run

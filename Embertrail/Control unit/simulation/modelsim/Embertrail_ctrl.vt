@@ -23,21 +23,23 @@
 // 
 // Simulation tool : ModelSim-Altera (Verilog)
 // 
-`define ADDR 	4'b0001
-`define ANDI	4'b0010
-`define ORI		4'b0011
-`define NOTI	4'b0100
-`define XORI 	4'b0101
-`define MVR  	4'b0110
-`define MVI 	4'b0111
-`define LDR		4'b1000
-`define LDA		4'b1001
-`define STR 	4'b1010
-`define PUSH 	4'b1011
-`define POP  	4'b1100
-`define STSP 	4'b1101
-`define JMP  	4'b1110
-`define BEQ  	4'b1111
+
+`define ADDR 	4'b0000
+`define ANDI 	4'b0001
+`define ORI		4'b0010
+`define NOTI	4'b0011
+`define XORI	4'b0100
+`define MVR  	4'b0101
+`define MVI  	4'b0110
+`define LDR		4'b0111
+`define LDA		4'b1000
+`define STR 	4'b1001
+`define PUSH	4'b1010
+`define POP  	4'b1011
+`define BEQ 	4'b1100
+`define SHIFTL	4'b1101
+`define SHIFTR	4'b1110
+//define BEQ  	4'b1111
 
 `define PAIR 1'b1
 `define SINGLE 1'b0
@@ -53,8 +55,8 @@ module Embertrail_ctrl_vlg_tst();
 // general purpose registers
 reg eachvec;
 // test vector input registers
-reg [31:0] IR;
-reg [15:0] PC;
+reg [31:0] IR_d, IR_q;
+wire [15:0] PC;
 reg clock;
 reg reset;
 //small pseudo instruciton memory
@@ -70,7 +72,6 @@ reg [31:0]
 //data and instruction bus control
 reg
   instMemEn,
-  instMemRW,
   dataBus1En,
   dataBus2En,
   dataBus1RW,
@@ -80,7 +81,12 @@ reg
 //select object from memory that are then laoded into busses/registers
 wire [31:0] dataAddrBus;
 wire [15:0] instAddrBus;
-          
+
+wire
+  data1MemRW,
+  data2MemRW,
+  data1BusEn,          
+  data2BusEn;
 // wires                                               
 initial //set clock
  begin: clockgen
@@ -89,17 +95,23 @@ initial //set clock
       clock = !clock;
   end
 
-// assign statements (if any)                          
+// assign statements (if any)  
+ assign PC = instAddrBus;
+
+
 Embertrail_top i1 (
 // port map - connection between master ports and signals/registers   
-  .iIR(IR),
-  .iPC(16'b0000000000000000),
-  .iClock(clock)
+  .iIR(IR_q),
+  .iPC(PC),
+  .iClock(clock),
+  .iReset(reset),
   .iDataDataBus(dataDataBus),   //data goes out  
   .oDataAddrBus(dataAddrBus),  //address comes in
   .oInstAddrBus(instAddrBus),  
-  .oDataMem1RW(instMemRW),         //read/write L/H
-  .oDataMem2RW(instMemRW),
+  .oDataMem1RW(data1MemRW),         //read/write L/H
+  .oDataMem2RW(data2MemRW),
+  .oData1BusEn(data1BusEn),
+  .oData2BusEn(data2BusEn)  
 );
 
 
@@ -108,12 +120,34 @@ begin : reg_init_l
 // code that executes only once                        
 // insert code here --> begin                          
 reg[4:0] i;
+ //BEQ test
+ instMem[0] =   { `PAIR, `IMMB,  (5'h10), (5'h0A), `MVR};  //set r10 to 16
+ instMem[1] =   {`SINGLE,`IMMB,  (5'h04), (5'h03), `MVR}; //set r3 to 4
+ instMem[2] =   {`NOPS};
+ instMem[3] =   {`PAIR, `REGB,   (5'h03), (5'h0A), `BEQ}; //does r3 = r10?
+ instMem[4] =   16'h0008; // if it does goto inst mem [1]  
+ instMem[5] =   {`SINGLE, `IMMB, (5'h01), (5'h03), `ADDR}; //add 1 to r3 
+ instMem[6] =   {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //jump back to add instruciton
+ instMem[7] =   {`NOPS, 16'h0003};
+ instMem[8] =   `NOPP; 
+ 
+  reset =1;
+  #10 
+  reset =0; 
+ /*
+for (i = 0; i < 20; i = i + 1) begin
+  IR = {instMem[PC+1], instMem[PC]};  
+end
+  */
 
-for (i = 0 ; i <= 30 ; i = i+1) 
+  
+/*  
+for (i = 0 ; i <= 15 ; i = i + 1) 
 begin
   #20 IR = {`IMMB, (5'b11110-i), (5'b11110-i), `MVR, `PAIR, `IMMB, i, i, `MVR};  
 end
-/*
+*/
+/* //ALU code
 for (i = 0 ; i <= 30 ; i = i+1) 
 begin
   #10 IR = {16'b0, `SINGLE, `IMMB, i, i, `ADDR};  
@@ -124,20 +158,32 @@ begin
   #10 IR = {16'b0, `SINGLE, `REGB, i, i, `ADDR};  
 end
 */
-
+/* //BEQ code
 #10 IR = {16'b0101010101010101, `PAIR, `IMMB, 5'b01000, 5'b00011, `BEQ};
 #10 IR = `NOPP;
 #10 IR = {16'b0000000000000011, `PAIR, `IMMB, 5'b00011, 5'b00011, `BEQ};
-#10 IR = `NOPP;
+*/
 // --> end                                             
 $display("Running testbench");                       
-end                                                    
+end 
+
+always @(*) begin
+  IR_q = {instMem[PC+1], instMem[PC]};  
+end
+/*
+always @(posedge clock) begin
+  IR_q <= IR_d;
+end                                                   
+*/
 always                                                 
 // optional sensitivity list                           
 // @(event1 or event2 or .... eventn)                  
 begin   :    test_l                                            
 // code executes for every event on sensitivity list   
-// insert code here --> begin                          
+// insert code here --> begin  
+
+reg [4:0] i;
+                 
 //#20
 //IR =  {`SINGLE, `REGB, 5'b00011, 5'b00100, `MVR, `SINGLE, `IMMB, 5'b01001, 5'b00001, `MVR};
 //#20
@@ -148,6 +194,7 @@ begin   :    test_l
 //IR =  {`SINGLE, `REGB, 5'b00011, 5'b00100, `MVR, `SINGLE, `REGB, 5'b00010, 5'b00001, `ADDR};  
 //#10
 //IR = {`NOP};                                                     
+
 
 
 

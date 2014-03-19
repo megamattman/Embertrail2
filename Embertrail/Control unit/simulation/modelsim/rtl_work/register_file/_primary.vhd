@@ -3,6 +3,7 @@ use verilog.vl_types.all;
 entity register_file is
     port(
         iClock          : in     vl_logic;
+        iReset          : in     vl_logic;
         iReadPort1A     : in     vl_logic;
         iReadPort1B     : in     vl_logic;
         iReadPort2A     : in     vl_logic;
