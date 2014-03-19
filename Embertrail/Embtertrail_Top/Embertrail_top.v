@@ -8,6 +8,7 @@ input wire iReset,
 
 input wire [31:0] iDataDataBus,
 
+output wire [31:0] oDataDataBus,
 output wire [31:0] oDataAddrBus,
 output wire [15:0] oInstAddrBus,
 
@@ -25,6 +26,7 @@ Embertrail_ctrl i1 (
   .iClock(iClock),
 	
   .iDataDataBus(iDataDataBus),  
+  .oDataDataBus (oDataDataBus),
   .oDataAddrBus(oDataAddrBus),  
   .oInstAddrBus(oInstAddrBus),
   .oDataMem1RW(oDataMem1RW),

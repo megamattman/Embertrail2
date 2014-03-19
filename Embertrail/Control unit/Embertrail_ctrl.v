@@ -46,6 +46,8 @@ input wire [31:0] iDataDataBus,
 output wire [31:0] oDataAddrBus,
 output wire [15:0] oInstAddrBus,
 
+output wire [31:0] oDataDataBus,
+
 output wire oDataMem1RW,
 output wire oDataMem2RW,
 output wire oData1BusEn,
@@ -89,8 +91,6 @@ output wire oData2BusEn
 	 inst1RegWB   =0,
 	 inst2RegWB   =0,
 	 inst1Addr    =0,
-	 inst1Ld      =0,
-	 inst2Ld      =0,
 	 inst1ImmInst =0,
 	 inst2ImmInst =0,
 	 inst1StackOp =0,
@@ -98,22 +98,17 @@ output wire oData2BusEn
     inst1Branch  =0,
     extendedInst =0, 
     rfReadPort1A =0,
-  //  rfReadPort1B =0,
     rfReadPort2A =0,
-  //  rfReadPort2B =0,  
     rfWritePort1 =0,
-    rfWritePort2 =0;	 
-	// branchTaken  =0;
-  
- // reg [1:0] cycleStage = 0;
+    rfWritePort2 =0,
+	 inst1Mem     =0,
+	 inst2Mem     =0,
+	 inst1MemRW   =0,
+	 inst2MemRW   =0;	 
   
   reg [4:0]
     rfRead1A = 0,
-	 rfRead2A = 0,
-	// rfWriteSel1 =0,
-	// rfWriteSel2 =0,    
-	 inst1RegWriteSel = 0,
-    inst2RegWriteSel = 0;
+	 rfRead2A = 0;
   
   reg [7:0]
     alu1Op = 0,
@@ -124,11 +119,8 @@ output wire oData2BusEn
     alu1OpB = 0,
     alu2OpA = 0,
     alu2OpB = 0,
-	// alu1Output = 0,
-	// alu2Output = 0,
-	// branchOpA =0,
-	// branchOpB =0,
-	// NPCOut = 0,
+	 memData1Addr = 0,
+	 memData2Addr = 0,
     NPC = 0;	 
    
 	 
@@ -157,7 +149,13 @@ output wire oData2BusEn
 //PC output
   assign oInstAddrBus = NPC ;
 
-  
+//memery address output
+  assign oDataAddrBus = {memData2Addr,memData1Addr};  
+  assign oDataDataBus = {alu2Result, alu1Result};
+  assign oData1BusEn = inst1Mem;
+  assign oData2BusEn = inst2Mem;
+  assign oDataMem1RW = inst1MemRW;
+  assign oDataMem2RW = inst2MemRW;
   ///{
 register_file RF (
 
@@ -221,22 +219,19 @@ begin : instDecode_l
 //first set all signals to zero!
   extendedInst = 0;
   inst1Branch = 0;
-//  inst1Addr = 0;
-  inst1Ld = 0;
   inst1RegWB = 0;
   inst1ImmInst = 0;
+  inst1Addr = 0;
   rfWriteData1 = 0;
-  alu1Op = 5'b00000;
-  inst1RegWriteSel = 0;
- // branchTaken = 0;
- // branchOpA = 0;
- // branchOpB = 0;
+  alu1Op = `ALU_ADD;  
 //rf control
-//  rfReadPort1A = 0;
-//  rfReadPort1B = 0; 
   rfWritePort1 = 0;
   noAlu1       =0;
   rfRead1A = 0;
+//Data memory control
+  inst1Mem = 0;
+  inst1MemRW = 0;
+  memData1Addr = 0;
   //end of initialisation
   
   case (inst1OpCode)	
@@ -282,32 +277,38 @@ begin : instDecode_l
 	   begin
 		  noAlu1 = 1;		  
 		  inst1RegWB = 1'b1;
-	     alu1Op = `ALU_ADD;	     
+	     alu1Op = `ALU_ADD;	 
+        inst1Mem = 1;        
 	   end
 	 `LDA:
 	   begin
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD;
 		  extendedInst = 1'b1;
-		  inst1Addr = 1'b1;
+		  inst1Addr = 1'b1;		  
 	   end
 	 `STR:
 	    begin
 		 alu1Op = `ALU_ADD;
 		 inst1RegWB = 1'b1;
-		 noAlu1 = 0;
+		 noAlu1 = 1;
+		 inst1Mem = 1;
+		 inst1MemRW =1;
 	    end
 	 `PUSH:
 	    begin
 		 alu1Op = `ALU_ADD;
 		 inst1RegWB = 1'b1;		 
-		 noAlu1 = 0;
+		 noAlu1 = 1;
+		 inst1Mem = 1;
+		 inst1MemRW = 1;
 	    end
 	 `POP:	 
 	    begin
-		 noAlu1 = 0;
+		 noAlu1 = 1;
 		 alu1Op = `ALU_ADD;		 
 		 inst1RegWB = 1'b1;
+		 inst1Mem = 1;
 	    end
 	 `BEQ:
 	   begin
@@ -344,7 +345,11 @@ begin : instDecode_l
   else begin
     rfRead1A = inst1OpA;
   end
-    	 
+  //set address register 
+  if (inst1Mem) begin
+    memData1Addr = inst1AReadData;
+  end
+  
   //OPA MUX2 
   if (noAlu1) begin
     alu1OpA = 16'h0000;
@@ -364,50 +369,25 @@ begin : instDecode_l
     alu1OpB = {11'b0, inst1OpB};		//use the reg sel value as small imm	  
   end
   else begin   				
-   alu1OpB = inst1BReadData;
+    alu1OpB = inst1BReadData;
   end
-  /*
-  if (inst1Branch) begin  // branch determines comparison opoerands
-    branchOpA =inst1AReadData;
-    if (inst1BImm) begin
-      branchOpB = {11'b0,inst1OpB};
-    end
-    else begin
-      branchOpB = inst1BReadData;
-    end
+  //Access memory
+ if (inst1Mem) begin
+    memData1Addr = inst1AReadData;
 	 
-	 if (branchOpA === branchOpB) begin // do the comparison
-	   branchTaken =1;
-	 end
-	 else begin
-	   branchTaken =0;
-    end
-  end 	 	 
-  */
-//determine which alu to use
-/*
-  if (inst1Addr) begin			
-    alu1Output = ({11'b0, inst1OpB} + instExAddr); //only supports positive offsets? Leave to programmer to deal with that
-  end
-  else begin
-		alu1Output = alu1Result;
-  end
-  */
-	//branch true or incremented PC
+  end	
 	
-	//Write back to registers, using memory data or aluOutput
+  //Write back to registers, using memory data or aluOutput
   if (inst1RegWB) begin	  
-    if (inst1Ld) begin
-	    dumbWire = 1'b1;
+    rfWritePort1 = 1;
+    if (~inst1MemRW & inst1Mem) begin
+	    rfWriteData1 = {rfRead1A,iDataDataBus[15:0]};
 	 end
-	 else begin
-	   rfWritePort1 = 1;
-	   inst1RegWriteSel = rfRead1A;
-	   rfWriteData1 = {inst1RegWriteSel,alu1Result};
-    end
+	 else begin	   
+	   rfWriteData1 = {rfRead1A,alu1Result};
+    end	 
   end
 end	
-
 
 always @(posedge iClock) begin
   if (iReset) begin
@@ -428,21 +408,18 @@ end
 //--check if extedned instruction
 always@* begin
 //initialise second side
-  rfWritePort2 = 0;
- // rfReadPort2A = 0;
- // rfReadPort2B = 0; 
-   
-  inst2Ld = 0;
+  rfWritePort2 = 0;  
+  rfReadPort2A = 0; 
   inst2RegWB = 0;
   inst2ImmInst = 0;
   rfWriteData2 = 0;
   alu2Op = 5'b00000;
   alu2OpB = 0;
   alu2OpA = 0;
-  noAlu2  =0;
-  inst2RegWriteSel = 0;
+  noAlu2  =0;  
   rfRead2A = 0;
   inst2StackOp = 0;
+  memData2Addr = 0;
 //end initilisation
   if (dualInst & ~extendedInst) begin
     case (inst2OpCode)	
@@ -541,29 +518,32 @@ always@* begin
       alu2OpA = inst2AReadData;
     end
 	
-   //OPN MUX
+   //OPB MUX
     if (inst2ImmInst) begin 
       alu2OpB = inst2Imm;
     end
     else if (inst2BImm)	begin	 
       alu2OpB = {11'b0, inst2OpB};		//use the reg sel value as small imm	  
     end	
-    else begin
- //    rfReadPort2B = 1;					//set read signal when required
+    else begin 
      alu2OpB = inst2BReadData;
     end
-     		  
+     		
+	 //Access memory
+  if (inst2Mem) begin
+    memData2Addr = inst2AReadData;
+  end		
 //Write back to registers, using memory data or aluOutput
     if (inst2RegWB) begin	  
-	   if (inst2Ld) begin
-	     dumbWire = 1'b1;
+	   rfWritePort2 = 1;
+	   if (~inst2MemRW & inst2Mem) begin
+	     rfWriteData2 = {rfRead2A,iDataDataBus[31:16]};
 	   end
-	   else 
-	     rfWritePort2 = 1;
-	     inst2RegWriteSel = inst2OpA;
-	     rfWriteData2 = {inst2RegWriteSel,alu2Result};
-	   end	
-    end //if dualInst
+	   else begin 	     	     
+	     rfWriteData2 = {rfRead2A,alu2Result};
+	   end
+    end
+  end //if dualInst
  end // always@(*)
 
 endmodule
@@ -575,26 +555,3 @@ endmodule
 
 
 //}
-/* //two cycle instructions 
-always @(posedge iClock)
-begin
-  if (iReset) begin
-    NPC = 0;
-	 cycleStage = 0;
-  end
-  else if (cycleStage == 2'b10) begin
-    cycleStage = 0;
-    if (branchTaken) begin
-      NPC = instExAddr;  
-    end
-    else if (dualInst) begin
-      NPC = iPC + 16'h0002; //increment by 32 bits
-    end
-    else begin
-      NPC = iPC + 16'h0001; //increment by 16 bits	
-    end    
-  end
-  else
-    cycleStage = cycleStage +1;
-end
-*/

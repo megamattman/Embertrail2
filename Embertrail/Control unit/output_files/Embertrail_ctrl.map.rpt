@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Embertrail_ctrl
-Wed Mar 19 14:50:53 2014
+Wed Mar 19 17:10:57 2014
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -44,16 +44,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 19 14:50:53 2014      ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 19 17:10:57 2014      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; Embertrail_ctrl                            ;
 ; Top-level Entity Name              ; Embertrail_top                             ;
 ; Family                             ; Cyclone III                                ;
-; Total logic elements               ; 2,830                                      ;
-;     Total combinational functions  ; 2,318                                      ;
+; Total logic elements               ; 3,248                                      ;
+;     Total combinational functions  ; 2,736                                      ;
 ;     Dedicated logic registers      ; 1,040                                      ;
 ; Total registers                    ; 1040                                       ;
-; Total pins                         ; 134                                        ;
+; Total pins                         ; 166                                        ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -176,28 +176,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimated Total logic elements              ; 2,830        ;
+; Estimated Total logic elements              ; 3,248        ;
 ;                                             ;              ;
-; Total combinational functions               ; 2318         ;
+; Total combinational functions               ; 2736         ;
 ; Logic element usage by number of LUT inputs ;              ;
-;     -- 4 input functions                    ; 2007         ;
-;     -- 3 input functions                    ; 225          ;
-;     -- <=2 input functions                  ; 86           ;
+;     -- 4 input functions                    ; 2440         ;
+;     -- 3 input functions                    ; 191          ;
+;     -- <=2 input functions                  ; 105          ;
 ;                                             ;              ;
 ; Logic elements by mode                      ;              ;
-;     -- normal mode                          ; 2259         ;
+;     -- normal mode                          ; 2677         ;
 ;     -- arithmetic mode                      ; 59           ;
 ;                                             ;              ;
 ; Total registers                             ; 1040         ;
 ;     -- Dedicated logic registers            ; 1040         ;
 ;     -- I/O registers                        ; 0            ;
 ;                                             ;              ;
-; I/O pins                                    ; 134          ;
+; I/O pins                                    ; 166          ;
 ; Embedded Multiplier 9-bit elements          ; 0            ;
 ; Maximum fan-out node                        ; iReset~input ;
 ; Maximum fan-out                             ; 1072         ;
-; Total fan-out                               ; 12639        ;
-; Average fan-out                             ; 3.49         ;
+; Total fan-out                               ; 14389        ;
+; Average fan-out                             ; 3.50         ;
 +---------------------------------------------+--------------+
 
 
@@ -206,11 +206,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                 ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+--------------+
-; |Embertrail_top            ; 2318 (0)          ; 1040 (0)     ; 0           ; 0            ; 0       ; 0         ; 134  ; 0            ; |Embertrail_top                                     ; work         ;
-;    |Embertrail_ctrl:i1|    ; 2318 (1454)       ; 1040 (16)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1                  ; work         ;
-;       |alu:A1|             ; 151 (151)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1|alu:A1           ; work         ;
-;       |alu:A2|             ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1|alu:A2           ; work         ;
-;       |register_file:RF|   ; 678 (678)         ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF ; work         ;
+; |Embertrail_top            ; 2736 (0)          ; 1040 (0)     ; 0           ; 0            ; 0       ; 0         ; 166  ; 0            ; |Embertrail_top                                     ; work         ;
+;    |Embertrail_ctrl:i1|    ; 2736 (1477)       ; 1040 (16)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1                  ; work         ;
+;       |alu:A1|             ; 332 (332)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1|alu:A1           ; work         ;
+;       |alu:A2|             ; 155 (155)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1|alu:A2           ; work         ;
+;       |register_file:RF|   ; 772 (772)         ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -235,55 +235,57 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|NPC[6]                       ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[31][12] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[30][11] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[29][9]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[28][9]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[27][15] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[26][1]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[25][8]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[24][10] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[23][4]  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|NPC[2]                       ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[31][14] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[30][3]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[29][7]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[28][10] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[27][3]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[26][11] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[25][6]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[24][8]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[23][5]  ;
 ; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[22][3]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[21][12] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[20][12] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[19][12] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[18][12] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[17][12] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[16][12] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[15][13] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[14][10] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[13][3]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[12][1]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[11][15] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[10][10] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[9][15]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[8][4]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[7][12]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[6][5]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[5][13]  ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[4][3]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[3][2]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[2][5]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[1][5]   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[0][5]   ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[18]             ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfRead2A[1]                  ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData2[20]             ;
-; 33:1               ; 16 bits   ; 352 LEs       ; 352 LEs              ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpA[3]                   ;
-; 34:1               ; 6 bits    ; 132 LEs       ; 132 LEs              ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu1OpB[10]                  ;
-; 34:1               ; 5 bits    ; 110 LEs       ; 110 LEs              ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu1OpB[7]                   ;
-; 34:1               ; 5 bits    ; 110 LEs       ; 110 LEs              ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu1OpB[4]                   ;
-; 34:1               ; 15 bits   ; 330 LEs       ; 90 LEs               ; 240 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData2[3]              ;
-; 36:1               ; 6 bits    ; 144 LEs       ; 132 LEs              ; 12 LEs                 ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpB[11]                  ;
-; 36:1               ; 5 bits    ; 120 LEs       ; 115 LEs              ; 5 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpB[9]                   ;
-; 36:1               ; 5 bits    ; 120 LEs       ; 115 LEs              ; 5 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpB[3]                   ;
-; 262:1              ; 4 bits    ; 696 LEs       ; 40 LEs               ; 656 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[7]              ;
-; 262:1              ; 4 bits    ; 696 LEs       ; 40 LEs               ; 656 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[9]              ;
-; 263:1              ; 2 bits    ; 350 LEs       ; 20 LEs               ; 330 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[2]              ;
-; 263:1              ; 2 bits    ; 350 LEs       ; 20 LEs               ; 330 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[13]             ;
-; 264:1              ; 2 bits    ; 352 LEs       ; 22 LEs               ; 330 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[14]             ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[21][11] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[20][9]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[19][9]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[18][3]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[17][6]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[16][4]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[15][15] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[14][8]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[13][2]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[12][5]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[11][7]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[10][14] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[9][12]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[8][15]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[7][4]   ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[6][1]   ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[5][15]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[4][13]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[3][7]   ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[2][7]   ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[1][10]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|r_d[0][14]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu1OpB[4]                   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[19]             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData1[11]             ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|oDataAddrBus[0]              ;
+; 3:1                ; 21 bits   ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; No         ; |Embertrail_top|Embertrail_ctrl:i1|rfWriteData2[12]             ;
+; 32:1               ; 5 bits    ; 105 LEs       ; 105 LEs              ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|register_file:RF|Mux28       ;
+; 32:1               ; 15 bits   ; 315 LEs       ; 90 LEs               ; 225 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu:A2|Selector5             ;
+; 33:1               ; 11 bits   ; 242 LEs       ; 242 LEs              ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu1OpB                      ;
+; 34:1               ; 16 bits   ; 352 LEs       ; 352 LEs              ; 0 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu1OpA[14]                  ;
+; 35:1               ; 16 bits   ; 368 LEs       ; 352 LEs              ; 16 LEs                 ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpA[7]                   ;
+; 36:1               ; 6 bits    ; 144 LEs       ; 132 LEs              ; 12 LEs                 ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpB[10]                  ;
+; 36:1               ; 5 bits    ; 120 LEs       ; 115 LEs              ; 5 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpB[7]                   ;
+; 36:1               ; 5 bits    ; 120 LEs       ; 115 LEs              ; 5 LEs                  ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu2OpB[0]                   ;
+; 261:1              ; 4 bits    ; 696 LEs       ; 40 LEs               ; 656 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu:A1|Selector8             ;
+; 261:1              ; 4 bits    ; 696 LEs       ; 40 LEs               ; 656 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu:A1|Selector5             ;
+; 262:1              ; 2 bits    ; 348 LEs       ; 20 LEs               ; 328 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu:A1|Selector12            ;
+; 262:1              ; 2 bits    ; 348 LEs       ; 20 LEs               ; 328 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu:A1|Selector2             ;
+; 263:1              ; 2 bits    ; 350 LEs       ; 22 LEs               ; 328 LEs                ; No         ; |Embertrail_top|Embertrail_ctrl:i1|alu:A1|Selector0             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
 
 
@@ -296,15 +298,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------+-------+----------+-----------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Embertrail_ctrl:i1|register_file:RF"                                                       ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; iReadPort1A ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; iReadPort2A ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; oRead1AData ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "Embertrail_ctrl:i1|register_file:RF" ;
++-------------+-------+----------+--------------------------------+
+; Port        ; Type  ; Severity ; Details                        ;
++-------------+-------+----------+--------------------------------+
+; iReadPort1A ; Input ; Info     ; Stuck at VCC                   ;
++-------------+-------+----------+--------------------------------+
 
 
 +-------------------------------+
@@ -312,7 +312,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -322,7 +322,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Wed Mar 19 14:50:41 2014
+    Info: Processing started: Wed Mar 19 17:10:44 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file embertrail_ctrl.v
@@ -335,37 +335,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: Embertrail_top
 Info (12127): Elaborating entity "Embertrail_top" for the top level hierarchy
 Info (12128): Elaborating entity "Embertrail_ctrl" for hierarchy "Embertrail_ctrl:i1"
-Warning (10036): Verilog HDL or VHDL warning at Embertrail_ctrl.v(86): object "dumbWire" assigned a value but never read
-Warning (10240): Verilog HDL Always Construct warning at Embertrail_ctrl.v(220): inferring latch(es) for variable "inst1Addr", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Embertrail_ctrl.v(431): inferring latch(es) for variable "rfReadPort2A", which holds its previous value in one or more paths through the always construct
-Warning (10034): Output port "oDataAddrBus" at Embertrail_ctrl.v(46) has no driver
-Warning (10034): Output port "oDataMem1RW" at Embertrail_ctrl.v(49) has no driver
-Warning (10034): Output port "oDataMem2RW" at Embertrail_ctrl.v(50) has no driver
-Warning (10034): Output port "oData1BusEn" at Embertrail_ctrl.v(51) has no driver
-Warning (10034): Output port "oData2BusEn" at Embertrail_ctrl.v(54) has no driver
-Info (10041): Inferred latch for "rfReadPort2A" at Embertrail_ctrl.v(446)
-Info (10041): Inferred latch for "inst1Addr" at Embertrail_ctrl.v(220)
+Warning (10036): Verilog HDL or VHDL warning at Embertrail_ctrl.v(88): object "dumbWire" assigned a value but never read
 Info (12128): Elaborating entity "register_file" for hierarchy "Embertrail_ctrl:i1|register_file:RF"
 Warning (10036): Verilog HDL or VHDL warning at registerFile.v(44): object "i" assigned a value but never read
 Info (12128): Elaborating entity "alu" for hierarchy "Embertrail_ctrl:i1|alu:A1"
 Info (10264): Verilog HDL Case Statement information at alu.v(36): all case item expressions in this case statement are onehot
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "oDataAddrBus[0]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[1]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[2]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[3]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[4]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[5]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[6]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[7]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[8]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[9]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[10]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[11]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[12]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[13]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[14]" is stuck at GND
-    Warning (13410): Pin "oDataAddrBus[15]" is stuck at GND
     Warning (13410): Pin "oDataAddrBus[16]" is stuck at GND
     Warning (13410): Pin "oDataAddrBus[17]" is stuck at GND
     Warning (13410): Pin "oDataAddrBus[18]" is stuck at GND
@@ -382,30 +357,12 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "oDataAddrBus[29]" is stuck at GND
     Warning (13410): Pin "oDataAddrBus[30]" is stuck at GND
     Warning (13410): Pin "oDataAddrBus[31]" is stuck at GND
-    Warning (13410): Pin "oDataMem1RW" is stuck at GND
     Warning (13410): Pin "oDataMem2RW" is stuck at GND
-    Warning (13410): Pin "oData1BusEn" is stuck at GND
     Warning (13410): Pin "oData2BusEn" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 32 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "iDataDataBus[0]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[1]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[2]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[3]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[4]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[5]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[6]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[7]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[8]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[9]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[10]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[11]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[12]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[13]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[14]"
-    Warning (15610): No output dependent on input pin "iDataDataBus[15]"
+Warning (21074): Design contains 16 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "iDataDataBus[16]"
     Warning (15610): No output dependent on input pin "iDataDataBus[17]"
     Warning (15610): No output dependent on input pin "iDataDataBus[18]"
@@ -422,14 +379,14 @@ Warning (21074): Design contains 32 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "iDataDataBus[29]"
     Warning (15610): No output dependent on input pin "iDataDataBus[30]"
     Warning (15610): No output dependent on input pin "iDataDataBus[31]"
-Info (21057): Implemented 2964 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3414 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 82 input pins
-    Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 2830 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 80 warnings
+    Info (21059): Implemented 84 output pins
+    Info (21061): Implemented 3248 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 39 warnings
     Info: Peak virtual memory: 483 megabytes
-    Info: Processing ended: Wed Mar 19 14:50:53 2014
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Processing ended: Wed Mar 19 17:10:57 2014
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:13
 
 

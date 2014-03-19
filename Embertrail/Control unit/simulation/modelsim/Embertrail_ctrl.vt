@@ -63,11 +63,11 @@ reg reset;
 reg [15:0] instMem [15:0];
 
 //small pseudo data memory
-reg [15:0] dataMem [15:0];
+reg [15:0] dataMem [31:0];
 
 //data and instruction bus
 reg [31:0]   
-  dataDataBus;
+  dataDataBusOut;
 
 //data and instruction bus control
 reg
@@ -81,7 +81,7 @@ reg
 //select object from memory that are then laoded into busses/registers
 wire [31:0] dataAddrBus;
 wire [15:0] instAddrBus;
-
+wire [31:0] dataDataBusIn;
 wire
   data1MemRW,
   data2MemRW,
@@ -105,7 +105,8 @@ Embertrail_top i1 (
   .iPC(PC),
   .iClock(clock),
   .iReset(reset),
-  .iDataDataBus(dataDataBus),   //data goes out  
+  .iDataDataBus(dataDataBusOut),   //data goes out 
+  .oDataDataBus(dataDataBusIn), 
   .oDataAddrBus(dataAddrBus),  //address comes in
   .oInstAddrBus(instAddrBus),  
   .oDataMem1RW(data1MemRW),         //read/write L/H
@@ -119,8 +120,20 @@ initial
 begin : reg_init_l                                                 
 // code that executes only once                        
 // insert code here --> begin                          
-reg[4:0] i;
- //BEQ test
+reg[6:0] i;
+//LDA load + store test
+  dataMem[22] = 16'hff11;
+  instMem[0] = {`PAIR, `IMMB,   (5'h00), (5'h1A), `LDA}; //place addres value 0x0010 -> r26
+  instMem[1] = {16'h0010};
+  instMem[2] = `NOPS;
+  instMem[3] = {`SINGLE, `IMMB,   (5'h1f), (5'h1A), `STR}; //place value 0x1f in the addres of r26
+  instMem[4] = {`PAIR, `IMMB,   (5'h00), (5'h0A), `LDA}; //place addres value 0x0010 -> r26
+  instMem[5] = {16'h0016};
+  instMem[6] = `NOPS;
+  instMem[7] = {`PAIR, `IMMB,   (5'h00), (5'h0A), `LDR}; //read address from r10
+  //instMem[4] = {`SINGLE, `IMMB, (5'h1f), (5'h1A), `STR}; //place value 0x1f in the addres of r26
+ //BEQ test 
+ /*
  instMem[0] =   { `PAIR, `IMMB,  (5'h10), (5'h0A), `MVR};  //set r10 to 16
  instMem[1] =   {`SINGLE,`IMMB,  (5'h04), (5'h03), `MVR}; //set r3 to 4
  instMem[2] =   {`NOPS};
@@ -130,39 +143,18 @@ reg[4:0] i;
  instMem[6] =   {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //jump back to add instruciton
  instMem[7] =   {`NOPS, 16'h0003};
  instMem[8] =   `NOPP; 
- 
+ */
   reset =1;
   #10 
   reset =0; 
- /*
-for (i = 0; i < 20; i = i + 1) begin
-  IR = {instMem[PC+1], instMem[PC]};  
-end
-  */
-
   
-/*  
+/* //set registers to values 
 for (i = 0 ; i <= 15 ; i = i + 1) 
 begin
   #20 IR = {`IMMB, (5'b11110-i), (5'b11110-i), `MVR, `PAIR, `IMMB, i, i, `MVR};  
 end
 */
-/* //ALU code
-for (i = 0 ; i <= 30 ; i = i+1) 
-begin
-  #10 IR = {16'b0, `SINGLE, `IMMB, i, i, `ADDR};  
-end
 
-for (i = 0 ; i <= 30 ; i = i+1) 
-begin
-  #10 IR = {16'b0, `SINGLE, `REGB, i, i, `ADDR};  
-end
-*/
-/* //BEQ code
-#10 IR = {16'b0101010101010101, `PAIR, `IMMB, 5'b01000, 5'b00011, `BEQ};
-#10 IR = `NOPP;
-#10 IR = {16'b0000000000000011, `PAIR, `IMMB, 5'b00011, 5'b00011, `BEQ};
-*/
 // --> end                                             
 $display("Running testbench");                       
 end 
@@ -170,11 +162,31 @@ end
 always @(*) begin
   IR_q = {instMem[PC+1], instMem[PC]};  
 end
-/*
-always @(posedge clock) begin
-  IR_q <= IR_d;
-end                                                   
-*/
+
+always @(*) begin
+  if (data1BusEn) begin
+    if (data1MemRW) begin
+	   dataMem[dataAddrBus[15:0]] = dataDataBusIn[15:0];	 
+	 end
+	 else begin
+	   dataDataBusOut[15:0] = dataMem[dataAddrBus[15:0]];
+	 end
+  end
+end
+
+always @(*) begin
+  if (data2BusEn) begin
+    if (data2MemRW) begin
+	   dataMem[dataAddrBus[31:16]] = dataDataBusIn[31:16];	 
+	 end
+	 else begin
+	   dataDataBusOut[31:16] = dataMem[dataAddrBus[31:16]];
+	 end
+  end
+end
+
+
+  
 always                                                 
 // optional sensitivity list                           
 // @(event1 or event2 or .... eventn)                  
