@@ -36,56 +36,56 @@ module alu (
     case (iOperation)
       `ALU_ADD:
         begin
-  	       aluOutput_q = iOperandA + iOperandB;  
+  	       aluOutput_d = iOperandA + iOperandB;  
         end
       `ALU_XOR:
   	      begin
-  	        aluOutput_q = iOperandA ^ iOperandB;
+  	        aluOutput_d = iOperandA ^ iOperandB;
   	      end
       `ALU_OR:
   	      begin
-  	        aluOutput_q = iOperandA | iOperandB;
+  	        aluOutput_d = iOperandA | iOperandB;
   	      end
   	   `ALU_NOT:
   	       begin
-  		      aluOutput_q = ~iOperandA;
+  		      aluOutput_d = ~iOperandA;
   		    end
   	   `ALU_AND:
   	       begin
-  		      aluOutput_q = iOperandA & iOperandB;
+  		      aluOutput_d = iOperandA & iOperandB;
   		    end
   		`ALU_SL:
   	     begin
-  		    aluOutput_q = iOperandA << iOperandB;
+  		    aluOutput_d = iOperandA << iOperandB;
   		  end
   		`ALU_SR:
   	     begin
-  		    aluOutput_q = iOperandA >> iOperandB;
+  		    aluOutput_d = iOperandA >> iOperandB;
   		  end
   		`ALU_CMP:
   	     begin
   		    if (iOperandA === iOperandB) begin
-  		      aluOutput_q = `TRUE;
+  		      aluOutput_d = `TRUE;
   		    end
   		    else begin
-  		      aluOutput_q = `FALSE;
+  		      aluOutput_d = `FALSE;
   		    end
   		  end
   	 default:	    
   	   begin
-  	     aluOutput_q = `FALSE;
+  	     aluOutput_d = `FALSE;
       end	
   endcase
   
   end
-  /*
-    always@(posedge iClock) begin
-	   if (iReset) begin
-		  aluOutput_q <= 0;
-		end
-		else begin		  
-	     aluOutput_q <= aluOutput_d;
-		end
+  
+  always@(posedge iClock) begin
+	 if (iReset) begin
+	   aluOutput_q <= 0;
 	 end
-  */
+	 else begin		  
+	   aluOutput_q <= aluOutput_d;
+	 end
+  end
+  
 endmodule

@@ -18,6 +18,7 @@ entity register_file is
         oRead1BData     : out    vl_logic_vector(15 downto 0);
         oRead2AData     : out    vl_logic_vector(15 downto 0);
         oRead2BData     : out    vl_logic_vector(15 downto 0);
+        oStackPointer   : out    vl_logic_vector(15 downto 0);
         iRegWrite1      : in     vl_logic_vector(20 downto 0);
         iRegWrite2      : in     vl_logic_vector(20 downto 0)
     );

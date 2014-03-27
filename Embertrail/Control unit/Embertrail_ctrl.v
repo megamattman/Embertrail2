@@ -29,6 +29,10 @@
 `define STACK_REGISTER 5'b11110
 `define IMMEDIATE_REGISTER 5'b11111
 
+`define TWO_CYCLE 5'b00010
+`define THREE_CYCLE 5'b00100
+`define FOUR_CYCLE 5'b01000
+
 `timescale 1ns/1ns
 
 `default_nettype none
@@ -69,7 +73,8 @@ output wire oData2BusEn
     inst1OpA,
     inst1OpB,
     inst2OpA,
-    inst2OpB;
+    inst2OpB,	 
+	 opLen;
   
   wire [9:0]
     inst1Imm,
@@ -82,12 +87,15 @@ output wire oData2BusEn
     inst2BReadData,
     alu1Result,  
     alu2Result,
-	 instExAddr;   
+	 instExAddr,
+	 stackPointer;   
   	 
   reg 
     dumbWire     =0,
-	 noAlu1       =0,
-	 noAlu2       =0,
+	 noAluA1      =0,	 
+	 noAluB1      =0,
+	 noAluA2      =0,
+	 noAluB2      =0,
 	 inst1RegWB   =0,
 	 inst2RegWB   =0,
 	 inst1Addr    =0,
@@ -107,26 +115,29 @@ output wire oData2BusEn
 	 inst2MemRW   =0;	 
   
   reg [4:0]
-    rfRead1A = 0,
-	 rfRead2A = 0;
+    rfRead1A     =0,
+	 inst1Len     =0,
+	 inst2Len     =0,
+	 opStage      =1,
+	 rfRead2A     =0;
   
   reg [7:0]
-    alu1Op = 0,
-	 alu2Op = 0;
+    alu1Op       =0,
+	 alu2Op       =0;
 	 
   reg [15:0]
-    alu1OpA = 0,
-    alu1OpB = 0,
-    alu2OpA = 0,
-    alu2OpB = 0,
-	 memData1Addr = 0,
-	 memData2Addr = 0,
-    NPC = 0;	 
+    alu1OpA      =0,
+    alu1OpB      =0,
+    alu2OpA      =0,
+    alu2OpB      =0,    
+	 memData1Addr =0,
+	 memData2Addr =0,
+    NPC          =0;	 
    
 	 
   reg [20:0]
-    rfWriteData1 = 0,
-	 rfWriteData2 = 0;
+    rfWriteData1 =0,
+	 rfWriteData2 =0;
   
 //first isntruction packet
   assign inst1OpCode		  = iIR[3:0];
@@ -150,12 +161,17 @@ output wire oData2BusEn
   assign oInstAddrBus = NPC ;
 
 //memery address output
-  assign oDataAddrBus = {memData2Addr,memData1Addr};  
-  assign oDataDataBus = {alu2Result, alu1Result};
+  assign oDataAddrBus[15:0] = (inst1Mem) ? (memData1Addr) : (16'bx);  
+  assign oDataAddrBus[31:16] = (inst2Mem) ? (memData2Addr) : (16'bx);  
+  assign oDataDataBus[15:0] = (inst1MemRW)? (alu1Result) : (16'bx);
+  assign oDataDataBus[31:16] = (inst2MemRW)? (alu2Result) : (16'bx);
   assign oData1BusEn = inst1Mem;
   assign oData2BusEn = inst2Mem;
   assign oDataMem1RW = inst1MemRW;
   assign oDataMem2RW = inst2MemRW;
+
+//program counter control
+  assign opLen = (inst1Len > inst2Len) ? inst1Len : inst2Len;
   ///{
 register_file RF (
 
@@ -166,7 +182,7 @@ register_file RF (
   .iReadPort1A(rfReadPort1A),
   .iReadPort1B(~inst1BImm),
   .iReadPort2A(rfReadPort2A),
-  .iReadPort2B(~inst1BImm),
+  .iReadPort2B(~inst2BImm),
 
   .iWritePort1(rfWritePort1),
   .iWritePort2(rfWritePort2),
@@ -181,6 +197,7 @@ register_file RF (
   .oRead1BData(inst1BReadData),
   .oRead2AData(inst2AReadData),
   .oRead2BData(inst2BReadData),
+  .oStackPointer(stackPointer),
 	
 //write
   .iRegWrite1(rfWriteData1),	
@@ -224,9 +241,11 @@ begin : instDecode_l
   inst1Addr = 0;
   rfWriteData1 = 0;
   alu1Op = `ALU_ADD;  
+  inst1Len = `TWO_CYCLE;
 //rf control
   rfWritePort1 = 0;
-  noAlu1       =0;
+  noAluA1       =0;
+  noAluB1       =0;
   rfRead1A = 0;
 //Data memory control
   inst1Mem = 0;
@@ -238,47 +257,55 @@ begin : instDecode_l
   	 `ADDR:
 	   begin	
 		  inst1RegWB = 1'b1;
-	     alu1Op = `ALU_ADD; 		  
+	     alu1Op = `ALU_ADD;
+        inst1Len = `THREE_CYCLE;
 	   end
 	 `ANDI:
 	   begin
 		  inst1RegWB = 1'b1;		  	
 	     alu1Op = `ALU_AND;
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `ORI:
 	   begin 
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_OR; 
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `NOTI:
 	   begin
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_NOT; 
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `XORI:
 	   begin
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_XOR; 
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `MVR:
 	   begin		  
-		  noAlu1 = 1;
+		  noAluA1 = 1;
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD; 
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `MVI:
 	   begin
-		  noAlu1 = 1;
+		  noAluA1 = 1;
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD;
 	     inst1ImmInst =1'b1;
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `LDR:
 	   begin
-		  noAlu1 = 1;		  
+		  noAluA1 = 1;		  
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD;	 
         inst1Mem = 1;        
+		  inst1Len = `FOUR_CYCLE;
 	   end
 	 `LDA:
 	   begin
@@ -286,49 +313,56 @@ begin : instDecode_l
 	     alu1Op = `ALU_ADD;
 		  extendedInst = 1'b1;
 		  inst1Addr = 1'b1;		  
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `STR:
 	    begin
 		 alu1Op = `ALU_ADD;
 		 //inst1RegWB = 1'b1;
-		 noAlu1 = 1;
+		 noAluB1 = 1;
 		 inst1Mem = 1;
 		 inst1MemRW =1;
+		 inst1Len = `THREE_CYCLE;
 	    end
 	 `PUSH:
 	    begin
 		 alu1Op = `ALU_ADD;
 		 inst1RegWB = 1'b1;		 
-		 noAlu1 = 1;
+		 noAluA1 = 1;
 		 inst1Mem = 1;
 		 inst1MemRW = 1;
+		 inst1Len = `THREE_CYCLE;
 	    end
 	 `POP:	 
 	    begin
-		 noAlu1 = 1;
+		 noAluA1 = 1;
 		 alu1Op = `ALU_ADD;		 
 		 inst1RegWB = 1'b1;
 		 inst1Mem = 1;
+		 inst1Len = `FOUR_CYCLE;
 	    end
 	 `BEQ:
 	   begin
 		  alu1Op = `ALU_CMP;
 	     extendedInst = 1'b1;
 		  inst1Branch = 1'b1;	
+		  inst1Len = `THREE_CYCLE;
 	   end
 	  `SHIFTL:
 	    begin
 		   inst1RegWB = 1'b1;
 		   alu1Op = `ALU_SL;
+			inst1Len = `THREE_CYCLE;
 		 end
 	  `SHIFTR:
 	    begin
 		   inst1RegWB = 1'b1;
 		   alu1Op = `ALU_SR;
+			inst1Len = `THREE_CYCLE;
 	    end
 	default: //nops
 		begin
-		dumbWire =1'b1;
+		inst1Len = `TWO_CYCLE;
 		end
 		//}
   endcase //end of case opCode1
@@ -336,10 +370,7 @@ begin : instDecode_l
 
  //OPA MUX1 - address with explicit oir implicit operands
   rfReadPort1A = 1;
-  if (inst1StackOp) begin
-    rfRead1A = `STACK_REGISTER;
-  end
-  else if (inst1ImmInst ) begin
+  if (inst1ImmInst ) begin
     rfRead1A = `IMMEDIATE_REGISTER;
   end
   else begin
@@ -347,11 +378,16 @@ begin : instDecode_l
   end
   //set address register 
   if (inst1Mem) begin
-    memData1Addr = inst1AReadData;
+    if (inst1StackOp) begin
+	   memData1Addr = stackPointer;
+	 end
+	 else begin
+      memData1Addr = inst1BReadData;
+    end
   end
   
   //OPA MUX2 
-  if (noAlu1) begin
+  if (noAluA1) begin
     alu1OpA = 16'h0000;
   end  
   else if (inst1Addr) begin
@@ -368,15 +404,13 @@ begin : instDecode_l
   else if (inst1BImm)	begin	 
     alu1OpB = {11'b0, inst1OpB};		//use the reg sel value as small imm	  
   end
+  else if (noAluB1) begin
+    alu1OpB = 16'b0;
+  end
   else begin   				
     alu1OpB = inst1BReadData;
   end
-  //Access memory
- if (inst1Mem) begin
-    memData1Addr = inst1AReadData;
-	 
-  end	
-	
+  
   //Write back to registers, using memory data or aluOutput
   if (inst1RegWB) begin	  
     rfWritePort1 = 1;
@@ -392,16 +426,22 @@ end
 always @(posedge iClock) begin
   if (iReset) begin
     NPC = 0;
-  end   	 
-  else if (alu1Result[0] & inst1Branch) begin
-    NPC = instExAddr;  
-  end	 
-  else if (dualInst) begin
-    NPC = iPC + 16'h0002; //increment by 32 bits
+  end  
+  else if (opLen === opStage) begin  
+    if (alu1Result[0] & inst1Branch) begin
+      NPC = instExAddr;  
+    end	 
+    else if (dualInst) begin
+      NPC = iPC + 16'h0002; //increment by 32 bits
+    end
+    else begin
+      NPC = iPC + 16'h0001; //increment by 16 bits	
+    end    
+	 opStage = 5'b00001;
   end
   else begin
-    NPC = iPC + 16'h0001; //increment by 16 bits	
-  end    
+    opStage = opStage << 1;
+  end
 end
 //decodes and sets signal for instruction 2
 //--decode instruction only if valid
@@ -413,14 +453,19 @@ always@* begin
   inst2RegWB = 0;
   inst2ImmInst = 0;
   rfWriteData2 = 0;
-  alu2Op = 5'b00000;
+  alu2Op = `ALU_ADD;
   alu2OpB = 0;
   alu2OpA = 0;
-  noAlu2  =0;  
+  noAluA2  =0;  
+  noAluB2  =0; 
   rfRead2A = 0;
+  inst2Len = `TWO_CYCLE;
+//memory control
   inst2StackOp = 0;
   inst2Mem = 0;
   memData2Addr = 0;
+  inst2MemRW = 0;
+  
 //end initilisation
   if (dualInst & ~extendedInst) begin
     case (inst2OpCode)	
@@ -428,72 +473,84 @@ always@* begin
 	     begin	
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD; 
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `ANDI:
 	     begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_AND;
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `ORI:
 	     begin 
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_OR; 
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `NOTI:
 	     begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_NOT; 
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `XORI:
 	     begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_XOR; 
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `MVR:
 	     begin
-		    noAlu2 = 1;
+		    noAluA2 = 1;
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD; 
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `MVI:
 	     begin
-		    noAlu2 = 1;
+		    noAluA2 = 1;
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD;
 	       inst2ImmInst =1'b1;
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `LDR:
 	     begin
-		    noAlu2 = 1;
+		    noAluA2 = 1;
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD;	
           inst2Mem = 1;			 
+			 inst2Len = `FOUR_CYCLE;
 	     end
 	   `STR:
 	      begin
-			  noAlu2 = 1;
+			  noAluB2 = 1;
 	 	     alu2Op = `ALU_ADD;
 		     inst2Mem = 1;
 		     inst2MemRW =1;
+			  inst2Len = `THREE_CYCLE;
 	 	     //inst2RegWB = 1'b1;
 	      end
 	   `PUSH:
 	      begin
-			  noAlu2 = 1;
+			  noAluA2 = 1;
 	 	     inst2RegWB = 1'b1;
 	 	     alu2Op = `ALU_ADD;
+			  inst2Len = `THREE_CYCLE;
 	      end
 	   `POP:	 
 	      begin
-			  noAlu2 = 1;
+			  noAluA2 = 1;
 	 	     alu2Op = `ALU_ADD;
 	 	     inst2RegWB = 1'b1;
+			  inst2Len = `FOUR_CYCLE;
 	      end      
 	  default: //nops
 		  begin
-		    noAlu2 = 0;
+		    noAluA2 = 0;
 		    alu2Op = `ALU_ADD;
 		    dumbWire =1'b1;
+			 inst2Len = `TWO_CYCLE;
 		  end
 		//}
     endcase //end of case opCode1 
@@ -504,18 +561,23 @@ always@* begin
     
 	 //OPA MUX1 - address with explicit oir implicit operands
     rfReadPort2A = 1;
-    if (inst2StackOp) begin
-      rfRead2A = `STACK_REGISTER;
-    end
-    else if (inst2ImmInst ) begin
+    if (inst2ImmInst ) begin
       rfRead2A = `IMMEDIATE_REGISTER;
     end
     else begin
       rfRead2A = inst2OpA;
     end 
 	
+	//write address register
+	if (inst2StackOp) begin
+	   memData2Addr = stackPointer;
+	 end
+	 else begin
+      memData2Addr = inst2BReadData;
+	 end
+	 
 	//OPA MUX2
-    if (noAlu2) begin
+    if (noAluA2) begin
       alu2OpA = 16'h0000;
     end
     else begin
@@ -529,14 +591,13 @@ always@* begin
     else if (inst2BImm)	begin	 
       alu2OpB = {11'b0, inst2OpB};		//use the reg sel value as small imm	  
     end	
+	 else if (noAluB2) begin
+      alu2OpB = 16'b0;
+	 end
     else begin 
      alu2OpB = inst2BReadData;
     end
-     		
-	 //Access memory
-  if (inst2Mem) begin
-    memData2Addr = inst2AReadData;
-  end		
+   	
 //Write back to registers, using memory data or aluOutput
     if (inst2RegWB) begin	  
 	   rfWritePort2 = 1;

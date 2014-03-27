@@ -123,9 +123,9 @@ begin : reg_init_l
 reg[6:0] i;
 
 //Big boy test -Load in two values, determine if they are equal, increment the lower one until they are, then store them
-//
+/*
   dataMem[15] = 16'h000A;
-  dataMem[16] = 16'h0001;
+  dataMem[16] = 16'h0007;
   instMem[0] = {`PAIR, `IMMB,   (5'h00), (5'h01), `LDA}; //load data address 15 into r1
   instMem[1] = 16'h000F;
   instMem[2] = {`PAIR, `IMMB,   (5'h00), (5'h02), `LDA};  //load data address 16 into r2
@@ -133,34 +133,42 @@ reg[6:0] i;
   instMem[4] = `NOPS;
   instMem[5] = { `PAIR, `REGB,  (5'h01), (5'h03), `MVR};  //save the address in r3
   instMem[6] = {`SINGLE,`REGB,  (5'h02), (5'h04), `MVR};  //save the address in r4
-  instMem[7] = {`PAIR,   `IMMB,   (5'h00), (5'h01), `LDR}; //read address from r1
-  instMem[8] = {`SINGLE, `IMMB,   (5'h00), (5'h02), `LDR}; //read address from r2
-  instMem[9] = {`PAIR, `REGB,   (5'h02), (5'h01), `BEQ}; //does r1 = r2?
-  instMem[10] = 16'h000E; // if it does jump to end of program
-  instMem[11] = {`SINGLE, `IMMB, (5'h01), (5'h02), `ADDR}; //inc r2
-  instMem[12] = {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //check again
-  instMem[13] = 16'h0009;
-  instMem[14] = {`SINGLE,  `IMMB, (5'h0F), (5'h01), `ADDR}; //add something to r1 to confirm store
-  instMem[15] = {`SINGLE, `REGB, (5'h02), (5'h04), `STR}; // r4 = 16, r2 = 10  
-  instMem[16] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
-  instMem[17] = `NOPS;
+  //load instrucitons take two cycles
+  instMem[7] = {`PAIR,   `REGB,   (5'h01), (5'h05), `LDR}; //read address from r1 and place in r5
+  instMem[8] = {`SINGLE, `REGB,   (5'h02), (5'h06), `LDR}; //read address from r2 and place in r6
+  instMem[9] = {`PAIR,   `REGB,   (5'h01), (5'h05), `LDR}; //read address from r1 and place in r5
+  instMem[10] = {`SINGLE, `REGB,   (5'h02), (5'h06), `LDR}; //read address from r2 and place in r6
+  instMem[11] = `NOPS;
+  instMem[12] = {`PAIR, `REGB,   (5'h05), (5'h06), `BEQ}; //does r1 = r2?
+  instMem[13] = 16'h0011; // if it does jump to end of program  
+  instMem[14] = {`SINGLE, `IMMB, (5'h01), (5'h06), `ADDR}; //inc r6
+  instMem[15] = {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //check again
+  instMem[16] = 16'h000C;
+  instMem[17] = {`PAIR,  `IMMB, (5'h0F), (5'h01), `ADDR}; //add something to r1 to confirm store
+  instMem[18] = {`SINGLE, `REGB, (5'h02), (5'h04), `STR}; // place the value for r4 in position r2
+  instMem[19] = `NOPS;
+  instMem[20] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
+  
+  //instMem[19] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
+  instMem[19] = `NOPS;
  //end of big boy test 
-  
-  
+ */ 
+ 
 
-/*
+
 //LDA load + store test
+
   dataMem[22] = 16'hff11;
   instMem[0] = {`PAIR, `IMMB,   (5'h00), (5'h1A), `LDA}; //place addres value 0x0010 -> r26
   instMem[1] = {16'h0010};
   instMem[2] = `NOPS;
-  instMem[3] = {`SINGLE, `IMMB,   (5'h1f), (5'h1A), `STR}; //place value 0x1f in the addres of r26
+  instMem[3] = {`SINGLE, `REGB,   (5'h1A), (5'h1A), `STR}; //place value 0x1f in the addres of r26
   instMem[4] = {`PAIR, `IMMB,   (5'h00), (5'h0A), `LDA}; //place addres value 0x0010 -> r26
   instMem[5] = {16'h0016};
   instMem[6] = `NOPS;
-  instMem[7] = {`PAIR, `IMMB,   (5'h00), (5'h0A), `LDR}; //read address from r10
+  instMem[7] = {`PAIR, `REGB,   (5'h0A), (5'h0B), `LDR}; //read address from r10 -> r11
   //instMem[4] = {`SINGLE, `IMMB, (5'h1f), (5'h1A), `STR}; //place value 0x1f in the addres of r26
-  */
+  
  //BEQ test 
  /*
  instMem[0] =   { `PAIR, `IMMB,  (5'h10), (5'h0A), `MVR};  //set r10 to 16
@@ -176,8 +184,21 @@ reg[6:0] i;
   reset =1;
   #10 
   reset =0; 
-  
-/* //set registers to values 
+  //MVR test
+  /*
+ instMem[0] =   `NOPS;  //set r10 to 16
+ instMem[1] =   { `PAIR, `IMMB,  (5'h01), (5'h01), `MVR};  //set r10 to 16
+ instMem[2] =   {`SINGLE,`IMMB,  (5'h02), (5'h02), `MVR}; //set r3 to 4
+ instMem[3] =   { `PAIR, `IMMB,  (5'h13), (5'h03), `MVR};
+ instMem[4] =   {`SINGLE,`IMMB,  (5'h04), (5'h04), `MVR};
+ instMem[5] =   { `PAIR, `IMMB,  (5'h15), (5'h05), `MVR};
+ instMem[6] =   {`SINGLE,`IMMB,  (5'h06), (5'h06), `MVR};
+ instMem[7] =   { `PAIR, `IMMB,  (5'h17), (5'h07), `MVR}; 
+ instMem[8] =   {`SINGLE,`IMMB,  (5'h08), (5'h08), `MVR};
+ instMem[9] =   `NOPP; 
+ */
+ //set registers to values 
+ /*
 for (i = 0 ; i <= 15 ; i = i + 1) 
 begin
   #20 IR = {`IMMB, (5'b11110-i), (5'b11110-i), `MVR, `PAIR, `IMMB, i, i, `MVR};  
@@ -188,11 +209,11 @@ end
 $display("Running testbench");                       
 end 
 
-always @(*) begin
+always @(posedge clock) begin
   IR_q = {instMem[PC+1], instMem[PC]};  
 end
 
-always @(*) begin
+always @(posedge clock) begin
   if (data1BusEn) begin
     if (data1MemRW) begin
 	   dataMem[dataAddrBus[15:0]] = dataDataBusIn[15:0];	 
@@ -201,9 +222,7 @@ always @(*) begin
 	   dataDataBusOut[15:0] = dataMem[dataAddrBus[15:0]];
 	 end
   end
-end
-
-always @(*) begin
+  
   if (data2BusEn) begin
     if (data2MemRW) begin
 	   dataMem[dataAddrBus[31:16]] = dataDataBusIn[31:16];	 

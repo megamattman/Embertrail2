@@ -23,7 +23,7 @@ module register_file (
   output wire [15:0] oRead1BData,
   output wire [15:0] oRead2AData,
   output wire [15:0] oRead2BData,
-	
+  output wire [15:0] oStackPointer,
 
 //write
 	input wire [20:0] iRegWrite1,
@@ -48,6 +48,7 @@ assign oRead1AData = readData1A_o;
 assign oRead1BData = readData1B_o;
 assign oRead2AData = readData2A_o;
 assign oRead2BData = readData2B_o;
+assign oStackPointer = r_q[30];
 
 //read register value
   always@(*) begin : readReg_l
