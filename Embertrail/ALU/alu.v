@@ -30,7 +30,7 @@ module alu (
     aluOutput_d,
 	 aluOutput_q;
 	 
-  assign oAluResult = aluOutput_q;
+  assign oAluResult = aluOutput_d;
   
   always@* begin
     case (iOperation)

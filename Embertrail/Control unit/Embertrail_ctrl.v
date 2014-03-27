@@ -29,9 +29,8 @@
 `define STACK_REGISTER 5'b11110
 `define IMMEDIATE_REGISTER 5'b11111
 
-`define TWO_CYCLE 5'b00010
-`define THREE_CYCLE 5'b00100
-`define FOUR_CYCLE 5'b01000
+`define TWO_CYCLE   5'b00010
+`define THREE_CYCLE 5'b01000
 
 `timescale 1ns/1ns
 
@@ -258,38 +257,38 @@ begin : instDecode_l
 	   begin	
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD;
-        inst1Len = `THREE_CYCLE;
+        inst1Len = `TWO_CYCLE;
 	   end
 	 `ANDI:
 	   begin
 		  inst1RegWB = 1'b1;		  	
 	     alu1Op = `ALU_AND;
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	 `ORI:
 	   begin 
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_OR; 
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	 `NOTI:
 	   begin
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_NOT; 
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	 `XORI:
 	   begin
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_XOR; 
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	 `MVR:
 	   begin		  
 		  noAluA1 = 1;
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD; 
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	 `MVI:
 	   begin
@@ -297,7 +296,7 @@ begin : instDecode_l
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD;
 	     inst1ImmInst =1'b1;
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	 `LDR:
 	   begin
@@ -305,7 +304,7 @@ begin : instDecode_l
 		  inst1RegWB = 1'b1;
 	     alu1Op = `ALU_ADD;	 
         inst1Mem = 1;        
-		  inst1Len = `FOUR_CYCLE;
+		  inst1Len = `THREE_CYCLE;
 	   end
 	 `LDA:
 	   begin
@@ -322,7 +321,7 @@ begin : instDecode_l
 		 noAluB1 = 1;
 		 inst1Mem = 1;
 		 inst1MemRW =1;
-		 inst1Len = `THREE_CYCLE;
+		 inst1Len = `TWO_CYCLE;
 	    end
 	 `PUSH:
 	    begin
@@ -331,7 +330,7 @@ begin : instDecode_l
 		 noAluA1 = 1;
 		 inst1Mem = 1;
 		 inst1MemRW = 1;
-		 inst1Len = `THREE_CYCLE;
+		 inst1Len = `TWO_CYCLE;
 	    end
 	 `POP:	 
 	    begin
@@ -339,7 +338,7 @@ begin : instDecode_l
 		 alu1Op = `ALU_ADD;		 
 		 inst1RegWB = 1'b1;
 		 inst1Mem = 1;
-		 inst1Len = `FOUR_CYCLE;
+		 inst1Len = `THREE_CYCLE;
 	    end
 	 `BEQ:
 	   begin
@@ -352,13 +351,13 @@ begin : instDecode_l
 	    begin
 		   inst1RegWB = 1'b1;
 		   alu1Op = `ALU_SL;
-			inst1Len = `THREE_CYCLE;
+			inst1Len = `TWO_CYCLE;
 		 end
 	  `SHIFTR:
 	    begin
 		   inst1RegWB = 1'b1;
 		   alu1Op = `ALU_SR;
-			inst1Len = `THREE_CYCLE;
+			inst1Len = `TWO_CYCLE;
 	    end
 	default: //nops
 		begin
@@ -473,38 +472,38 @@ always@* begin
 	     begin	
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD; 
-			 inst2Len = `THREE_CYCLE;
+			 inst2Len = `TWO_CYCLE;
 	     end
 	   `ANDI:
 	     begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_AND;
-			 inst2Len = `THREE_CYCLE;
+			 inst2Len = `TWO_CYCLE;
 	     end
 	   `ORI:
 	     begin 
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_OR; 
-			 inst2Len = `THREE_CYCLE;
+			 inst2Len = `TWO_CYCLE;
 	     end
 	   `NOTI:
 	     begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_NOT; 
-			 inst2Len = `THREE_CYCLE;
+			 inst2Len = `TWO_CYCLE;
 	     end
 	   `XORI:
 	     begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_XOR; 
-			 inst2Len = `THREE_CYCLE;
+			 inst2Len = `TWO_CYCLE;
 	     end
 	   `MVR:
 	     begin
 		    noAluA2 = 1;
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD; 
-			 inst2Len = `THREE_CYCLE;
+			 inst2Len = `TWO_CYCLE;
 	     end
 	   `MVI:
 	     begin
@@ -512,7 +511,7 @@ always@* begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD;
 	       inst2ImmInst =1'b1;
-			 inst2Len = `THREE_CYCLE;
+			 inst2Len = `TWO_CYCLE;
 	     end
 	   `LDR:
 	     begin
@@ -520,7 +519,7 @@ always@* begin
 	 	    inst2RegWB = 1'b1;
 	       alu2Op = `ALU_ADD;	
           inst2Mem = 1;			 
-			 inst2Len = `FOUR_CYCLE;
+			 inst2Len = `THREE_CYCLE;
 	     end
 	   `STR:
 	      begin
@@ -528,7 +527,7 @@ always@* begin
 	 	     alu2Op = `ALU_ADD;
 		     inst2Mem = 1;
 		     inst2MemRW =1;
-			  inst2Len = `THREE_CYCLE;
+			  inst2Len = `TWO_CYCLE;
 	 	     //inst2RegWB = 1'b1;
 	      end
 	   `PUSH:
@@ -536,14 +535,14 @@ always@* begin
 			  noAluA2 = 1;
 	 	     inst2RegWB = 1'b1;
 	 	     alu2Op = `ALU_ADD;
-			  inst2Len = `THREE_CYCLE;
+			  inst2Len = `TWO_CYCLE;
 	      end
 	   `POP:	 
 	      begin
 			  noAluA2 = 1;
 	 	     alu2Op = `ALU_ADD;
 	 	     inst2RegWB = 1'b1;
-			  inst2Len = `FOUR_CYCLE;
+			  inst2Len = `THREE_CYCLE;
 	      end      
 	  default: //nops
 		  begin
