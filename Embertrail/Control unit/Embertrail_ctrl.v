@@ -246,6 +246,7 @@ begin : instDecode_l
   noAluA1       =0;
   noAluB1       =0;
   rfRead1A = 0;
+   rfReadPort1A = 1;
 //Data memory control
   inst1Mem = 0;
   inst1MemRW = 0;
@@ -312,7 +313,7 @@ begin : instDecode_l
 	     alu1Op = `ALU_ADD;
 		  extendedInst = 1'b1;
 		  inst1Addr = 1'b1;		  
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	 `STR:
 	    begin
@@ -345,7 +346,7 @@ begin : instDecode_l
 		  alu1Op = `ALU_CMP;
 	     extendedInst = 1'b1;
 		  inst1Branch = 1'b1;	
-		  inst1Len = `THREE_CYCLE;
+		  inst1Len = `TWO_CYCLE;
 	   end
 	  `SHIFTL:
 	    begin
@@ -362,13 +363,14 @@ begin : instDecode_l
 	default: //nops
 		begin
 		inst1Len = `TWO_CYCLE;
+		 rfReadPort1A = 0;	
 		end
 		//}
   endcase //end of case opCode1
 
 
  //OPA MUX1 - address with explicit oir implicit operands
-  rfReadPort1A = 1;
+ 
   if (inst1ImmInst ) begin
     rfRead1A = `IMMEDIATE_REGISTER;
   end

@@ -1,5 +1,5 @@
 Flow report for Embertrail_ctrl
-Thu Mar 27 16:42:19 2014
+Tue Apr 01 23:33:44 2014
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,22 +40,22 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Thu Mar 27 16:42:19 2014      ;
+; Flow Status                        ; Successful - Tue Apr 01 23:33:44 2014      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; Embertrail_ctrl                            ;
 ; Top-level Entity Name              ; Embertrail_top                             ;
 ; Family                             ; Cyclone III                                ;
 ; Device                             ; EP3C16F484C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 3,310                                      ;
-;     Total combinational functions  ; 2,797                                      ;
-;     Dedicated logic registers      ; 1,045                                      ;
+; Total logic elements               ; 2,854 / 15,408 ( 19 % )                    ;
+;     Total combinational functions  ; 2,782 / 15,408 ( 18 % )                    ;
+;     Dedicated logic registers      ; 1,045 / 15,408 ( 7 % )                     ;
 ; Total registers                    ; 1045                                       ;
-; Total pins                         ; 166                                        ;
+; Total pins                         ; 166 / 347 ( 48 % )                         ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0                                          ;
-; Embedded Multiplier 9-bit elements ; 0                                          ;
-; Total PLLs                         ; 0                                          ;
+; Total memory bits                  ; 0 / 516,096 ( 0 % )                        ;
+; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                            ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                              ;
 +------------------------------------+--------------------------------------------+
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/27/2014 16:42:02 ;
+; Start date & time ; 04/01/2014 23:32:34 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Embertrail_ctrl     ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value   ; Entity Name    ; Section Id     ;
 +--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 207458815608901.139593852203984        ; --              ; --             ; --             ;
+; COMPILER_SIGNATURE_ID                ; 207458815608901.139639155405632        ; --              ; --             ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --              ; --             ; ctrl_test      ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ctrl_test                              ; --              ; --             ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --              ; --             ; eda_simulation ;
@@ -97,29 +97,41 @@ applicable agreement for further details.
 +--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 476 MB              ; 00:00:12                           ;
-; Total                ; 00:00:17     ; --                      ; --                  ; 00:00:12                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 520 MB              ; 00:00:12                           ;
+; Fitter                    ; 00:00:33     ; 1.9                     ; 1154 MB             ; 00:00:41                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 458 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 581 MB              ; 00:00:07                           ;
+; EDA Netlist Writer        ; 00:00:07     ; 1.0                     ; 446 MB              ; 00:00:05                           ;
+; Total                     ; 00:01:01     ; --                      ; --                  ; 00:01:07                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Flow OS Summary                                                                   ;
-+----------------------+------------------+-----------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; Matts-PC         ; Windows 7 ; 6.1        ; x86_64         ;
-+----------------------+------------------+-----------+------------+----------------+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; Matts-PC         ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; Matts-PC         ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; Matts-PC         ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; Matts-PC         ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; Matts-PC         ; Windows 7 ; 6.1        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
+quartus_fit --read_settings_files=off --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
+quartus_asm --read_settings_files=off --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
+quartus_sta Embertrail_ctrl -c Embertrail_ctrl
+quartus_eda --read_settings_files=off --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
 
 
 

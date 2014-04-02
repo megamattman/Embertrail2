@@ -122,6 +122,9 @@ begin : reg_init_l
 // insert code here --> begin                          
 reg[6:0] i;
 
+  reset =1;
+  #10 
+  reset =0; 
 //Big boy test -Load in two values, determine if they are equal, increment the lower one until they are, then store them
 
   dataMem[15] = 16'h000A;
@@ -129,28 +132,22 @@ reg[6:0] i;
   instMem[0] = {`PAIR, `IMMB,   (5'h00), (5'h01), `LDA}; //load data address 15 into r1
   instMem[1] = 16'h000F;
   instMem[2] = {`PAIR, `IMMB,   (5'h00), (5'h02), `LDA};  //load data address 16 into r2
-  instMem[3] = 16'h0010;  
-  instMem[4] = `NOPS;
+  instMem[3] = 16'h0010; 
   instMem[5] = { `PAIR, `REGB,  (5'h01), (5'h03), `MVR};  //save the address in r3
-  instMem[6] = {`SINGLE,`REGB,  (5'h02), (5'h04), `MVR};  //save the address in r4
-  //load instrucitons take two cycles
+  instMem[6] = {`SINGLE,`REGB,  (5'h02), (5'h04), `MVR};  //save the address in r4  
   instMem[7] = {`PAIR,   `REGB,   (5'h01), (5'h05), `LDR}; //read address from r1 and place in r5
-  instMem[8] = {`SINGLE, `REGB,   (5'h02), (5'h06), `LDR}; //read address from r2 and place in r6
- // instMem[9] = {`PAIR,   `REGB,   (5'h01), (5'h05), `LDR}; //read address from r1 and place in r5
- // instMem[10] = {`SINGLE, `REGB,   (5'h02), (5'h06), `LDR}; //read address from r2 and place in r6
-  instMem[9] = `NOPS;
-  instMem[10] = {`PAIR, `REGB,   (5'h05), (5'h06), `BEQ}; //does r1 = r2?
-  instMem[11] = 16'h000F; // if it does jump to end of program  
-  instMem[12] = {`SINGLE, `IMMB, (5'h01), (5'h06), `ADDR}; //inc r6
-  instMem[13] = {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //check again
-  instMem[14] = 16'h000A;
-  instMem[15] = {`PAIR,  `IMMB, (5'h0F), (5'h01), `ADDR}; //add something to r1 to confirm store
-  instMem[16] = {`SINGLE, `REGB, (5'h02), (5'h04), `STR}; // place the value for r4 in position r2
-  instMem[17] = `NOPS;
-  instMem[18] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
-  
+  instMem[8] = {`SINGLE, `REGB,   (5'h02), (5'h06), `LDR}; //read address from r2 and place in r6 
+  instMem[9] = {`PAIR, `REGB,   (5'h05), (5'h06), `BEQ}; //does r1 = r2?  
+  instMem[10] = 16'h000E; // if it does jump to end of program    
+  instMem[11] = {`SINGLE, `IMMB, (5'h01), (5'h06), `ADDR}; //inc r6
+  instMem[12] = {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //check again
+  instMem[13] = 16'h0009;
+  instMem[14] = {`PAIR,  `IMMB, (5'h0F), (5'h01), `ADDR}; //add something to r1 to confirm store
+  instMem[15] = {`SINGLE, `REGB, (5'h02), (5'h04), `STR}; // place the value for r4 in position r2  
+  instMem[16] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
+ 
   //instMem[19] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
-  instMem[19] = `NOPS;
+  //instMem[19] = `NOPS;
  //end of big boy test 
  
  
@@ -169,21 +166,8 @@ reg[6:0] i;
   instMem[7] = {`PAIR, `REGB,   (5'h0A), (5'h0B), `LDR}; //read address from r10 -> r11
   //instMem[4] = {`SINGLE, `IMMB, (5'h1f), (5'h1A), `STR}; //place value 0x1f in the addres of r26
   */
- //BEQ test 
- /*
- instMem[0] =   { `PAIR, `IMMB,  (5'h10), (5'h0A), `MVR};  //set r10 to 16
- instMem[1] =   {`SINGLE,`IMMB,  (5'h04), (5'h03), `MVR}; //set r3 to 4
- instMem[2] =   {`NOPS};
- instMem[3] =   {`PAIR, `REGB,   (5'h03), (5'h0A), `BEQ}; //does r3 = r10?
- instMem[4] =   16'h0008; // if it does goto inst mem [1]  
- instMem[5] =   {`SINGLE, `IMMB, (5'h01), (5'h03), `ADDR}; //add 1 to r3 
- instMem[6] =   {`PAIR, `IMMB,   (5'h00), (5'h00), `BEQ}; //jump back to add instruciton
- instMem[7] =   {`NOPS, 16'h0003};
- instMem[8] =   `NOPP; 
- */
-  reset =1;
-  #10 
-  reset =0; 
+
+
   //MVR test
   /*
  instMem[0] =   `NOPS;  //set r10 to 16
@@ -196,6 +180,71 @@ reg[6:0] i;
  instMem[7] =   { `PAIR, `IMMB,  (5'h17), (5'h07), `MVR}; 
  instMem[8] =   {`SINGLE,`IMMB,  (5'h08), (5'h08), `MVR};
  instMem[9] =   `NOPP; 
+ */
+ 
+ //LDA test
+ /*
+ instMem[0] = {`PAIR, `IMMB,  (5'h01), (5'h01), `LDA};
+ instMem[1] = 16'h0004;
+ instMem[2] = {`PAIR, `REGB,  (5'h00), (5'h02), `LDA};
+ instMem[3] = 16'h0010;
+ */
+ //BEQ test
+ /*
+  instMem[0] = {`PAIR, `IMMB, (5'h01),(5'h01),`MVR};
+  instMem[1] = {`SINGLE, `IMMB, (5'h06),(5'h02),`MVR};
+  instMem[2] = {`PAIR, `REGB, (5'h02),(5'h01),`BEQ};
+  instMem[3] = 16'h0007;
+  instMem[4] = {`SINGLE, `IMMB, (5'h01),(5'h01),`ADDR};
+  instMem[5] = {`PAIR, `REGB, (5'h00), (5'h00),`BEQ};
+  instMem[6] = 16'h0002;
+  instMem[7] = `NOPS;
+ */ 
+ //
+ //dual issue test
+ /*
+  dataMem[2] = 16'h01F0;
+  dataMem[7] = 16'hF0F0;
+  instMem[0] = {`PAIR, `IMMB, (5'h01),(5'h01),`MVR};
+  instMem[1] = {`SINGLE, `IMMB, (5'h06),(5'h02),`MVR};
+  instMem[2] = {`PAIR, `REGB, (5'h02),(5'h01),`STR};
+  instMem[3] = {`SINGLE, `REGB, (5'h01),(5'h02),`STR};
+  instMem[4] = {`PAIR, `IMMB, (5'h01),(5'h01),`ADDR};
+  instMem[5] = {`SINGLE, `IMMB, (5'h01),(5'h02),`ADDR};
+  instMem[6] = {`PAIR, `REGB, (5'h02),(5'h03),`LDR};	
+  instMem[7] = {`SINGLE, `REGB, (5'h01),(5'h04),`LDR}; 
+ */
+ //LDR Test
+ /*
+  dataMem[6] = 16'h0005;
+  instMem[0] = {`SINGLE, `IMMB, (5'h06),(5'h01),`MVR};
+  instMem[1] = {`SINGLE, `REGB, (5'h01),(5'h02),`LDR};
+ */
+ //
+ 
+ //STR test
+ /*
+  instMem[0] = {`SINGLE, `IMMB, (5'h01),(5'h01),`MVR};
+  instMem[1] = {`SINGLE, `IMMB, (5'h01),(5'h02),`MVR};
+  instMem[2] = {`SINGLE, `REGB, (5'h01),(5'h02),`STR};
+  */
+ //
+ //alu ADD test
+ /*
+  instMem[0] = {`SINGLE, `IMMB, (5'h01),(5'h01),`MVR};
+  instMem[1] = {`SINGLE, `IMMB, (5'h01),(5'h02),`MVR};
+  instMem[2] = {`SINGLE, `REGB, (5'h02),(5'h01),`ADDR};
+  instMem[3] = {`PAIR, `REGB, (5'h00), (5'h00),`BEQ};
+  instMem[4] = {16'h0003};
+  */
+ //
+   
+ 
+ //MVR test 1
+ /*
+ instMem[0] = {`SINGLE, `IMMB, (5'h01),(5'h01),`MVR};
+ instMem[1] = {`SINGLE, `IMMB, (10'h3E8) ,`MVI};
+ instMem[2] = {`SINGLE, `REGB, (5'h1F),(5'h02),`MVR};
  */
  //set registers to values 
  /*

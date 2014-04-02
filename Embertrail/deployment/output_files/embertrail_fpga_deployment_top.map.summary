@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Apr 02 00:56:54 2014
+Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Revision Name : embertrail_fpga_deployment_top
+Top-level Entity Name : embertrail_fpga_deployment_top
+Family : Cyclone III
+Total logic elements : 5,986
+    Total combinational functions : 3,759
+    Dedicated logic registers : 3,349
+Total registers : 3349
+Total pins : 19
+Total virtual pins : 0
+Total memory bits : 36,864
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
