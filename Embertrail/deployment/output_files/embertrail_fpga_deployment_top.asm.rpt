@@ -1,5 +1,5 @@
 Assembler report for embertrail_fpga_deployment_top
-Wed Apr 02 00:57:24 2014
+Sat Apr 05 17:46:41 2014
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Apr 02 00:57:24 2014 ;
+; Assembler Status      ; Successful - Sat Apr 05 17:46:41 2014 ;
 ; Revision Name         ; embertrail_fpga_deployment_top        ;
 ; Top-level Entity Name ; embertrail_fpga_deployment_top        ;
 ; Family                ; Cyclone III                           ;
@@ -103,8 +103,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                                                                   ;
 +----------------+---------------------------------------------------------------------------------------------------------------------------+
 ; Device         ; EP3C16F484C6                                                                                                              ;
-; JTAG usercode  ; 0x003DE4BA                                                                                                                ;
-; Checksum       ; 0x003DE4BA                                                                                                                ;
+; JTAG usercode  ; 0x003AB54B                                                                                                                ;
+; Checksum       ; 0x003AB54B                                                                                                                ;
 +----------------+---------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -114,13 +114,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Wed Apr 02 00:57:22 2014
+    Info: Processing started: Sat Apr 05 17:46:39 2014
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off embertrail_fpga_deployment -c embertrail_fpga_deployment_top
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 475 megabytes
-    Info: Processing ended: Wed Apr 02 00:57:24 2014
+    Info: Peak virtual memory: 476 megabytes
+    Info: Processing ended: Sat Apr 05 17:46:41 2014
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
