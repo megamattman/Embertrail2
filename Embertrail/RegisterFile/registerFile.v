@@ -40,8 +40,6 @@ reg [15:0]
   readData2A_o = 0,
   readData2B_o = 0;
 
-reg [5:0]
-  i = 0;
 ///}register declrations
 
 assign oRead1AData = readData1A_o;
@@ -51,7 +49,7 @@ assign oRead2BData = readData2B_o;
 assign oStackPointer = r_q[30];
 
 //read register value
-  always@(*) begin : readReg_l
+  always@(posedge iClock) begin : readReg_l
   
 	 readData1A_o = 0;
 	 readData1B_o = 0;
@@ -59,28 +57,28 @@ assign oStackPointer = r_q[30];
 	 readData2B_o = 0;
 	
     if (iReadPort1A) begin
-	   readData1A_o = r_q[iRegReadSel1A];		
+	   readData1A_o <= r_q[iRegReadSel1A];		
 	 end	 
     else begin
-      readData1A_o = 0;	 
+      readData1A_o <= 0;	 
     end	 
 	 if (iReadPort1B) begin
 	   readData1B_o = r_q[iRegReadSel1B];		
 	 end
 	 else begin
-	   readData1B_o = 0;
+	   readData1B_o <= 0;
     end 
 	 if (iReadPort2A) begin
-	   readData2A_o = r_q[iRegReadSel2A];			
+	   readData2A_o <= r_q[iRegReadSel2A];			
 	 end
 	 else begin
-	   readData2A_o = 0;
+	   readData2A_o <= 0;
     end
 	 if (iReadPort2B) begin
-	   readData2B_o = r_q[iRegReadSel2B];
+	   readData2B_o <= r_q[iRegReadSel2B];
     end
     else begin
-	   readData2B_o = 0;
+	   readData2B_o <= 0;
     end
   end
 

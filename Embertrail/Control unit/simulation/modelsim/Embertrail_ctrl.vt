@@ -60,7 +60,7 @@ wire [15:0] PC;
 reg clock;
 reg reset;
 //small pseudo instruciton memory
-reg [15:0] instMem [31:0];
+reg [15:0] instMem [34:0];
 
 //small pseudo data memory
 reg [15:0] dataMem [31:0];
@@ -155,8 +155,8 @@ reg[6:0] i;
   instMem[3] = 16'h0010; 
   instMem[5] = { `PAIR, `REGB,  (5'h01), (5'h03), `MVR};  //save the address in r3
   instMem[6] = {`SINGLE,`REGB,  (5'h02), (5'h04), `MVR};  //save the address in r4  
-  instMem[7] = {`PAIR,   `REGB,   (5'h0A), (5'h05), `MVR}; //read address from r1 and place in r5
-  instMem[8] = {`SINGLE, `REGB,   (5'h07), (5'h06), `MVR}; //read address from r2 and place in r6 
+  instMem[7] = {`PAIR,   `REGB,   (5'h01), (5'h05), `LDR}; //read address from r1 and place in r5
+  instMem[8] = {`SINGLE, `REGB,   (5'h02), (5'h06), `LDR}; //read address from r2 and place in r6 
   instMem[9] = {`PAIR, `REGB,   (5'h05), (5'h06), `BEQ}; //does r1 = r2?  
   instMem[10] = 16'h000E; // if it does jump to end of program    
   instMem[11] = {`SINGLE, `IMMB, (5'h01), (5'h06), `ADDR}; //inc r6
@@ -167,27 +167,75 @@ reg[6:0] i;
   instMem[15] = {`SINGLE,  `IMMB, (5'h0F), (5'h01), `ADDR}; //add something to r1 to confirm store
   instMem[16] = {`SINGLE, `REGB, (5'h02), (5'h04), `STR}; // place the value for r4 in position r2  
   instMem[17] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
- 
+*/ 
   //instMem[19] = {`SINGLE, `REGB, (5'h01), (5'h03), `STR};
   //instMem[19] = `NOPS;
  //end of big boy test 
+
+ 
+//modify an array
+/*
+dataMem[1] = 16'h0004;
+dataMem[2] = 16'h0005;
+dataMem[3] = 16'h0006;
+dataMem[4] = 16'h0007;
+*/
+//set up dmem values
+/*
+ instMem[0] =   { `PAIR, `IMMB,  (5'h01), (5'h03), `MVR}; 
+ instMem[1] =   {`SINGLE,`IMMB,  (5'h02), (5'h04), `MVR};
+ instMem[2] =   { `PAIR, `IMMB,  (5'h01), (5'h01), `MVR}; 
+ instMem[3] =   {`SINGLE,`IMMB,  (5'h02), (5'h02), `MVR};  
+ instMem[4] =   { `PAIR, `REGB, (5'h01), (5'h03), `STR}; 
+ instMem[5] =   {`SINGLE,`REGB, (5'h02), (5'h04), `STR}; 
+
+ instMem[6] =   { `PAIR, `IMMB,  (5'h03), (5'h01), `MVR}; 
+ instMem[7] =   {`SINGLE,`IMMB,  (5'h04), (5'h02), `MVR}; 
+ instMem[8] =   { `PAIR, `IMMB,  (5'h04), (5'h03), `MVR}; 
+ instMem[9] =   {`SINGLE,`IMMB,  (5'h08), (5'h04), `MVR}; 
+ instMem[10]=   { `PAIR, `REGB,  (5'h01), (5'h03), `STR}; 
+ instMem[11]=   {`SINGLE,`REGB,  (5'h02), (5'h04), `STR}; 
+ 
+ instMem[12] =   {  `PAIR,`IMMB,  (5'h10), (5'h01), `MVR}; 
+ instMem[13] =   {`SINGLE,`IMMB,  (5'h05), (5'h02), `MVR}; 
+ instMem[14] =   {`SINGLE,`REGB,  (5'h02), (5'h01), `STR}; 
+ 
+//end intialisation
+//main program
+ instMem[15]=   { `PAIR, `IMMB,  (5'h01), (5'h01), `MVR};  //index = 1 r1
+ instMem[16]=   {`SINGLE,`IMMB,  (5'h02), (5'h02), `MVR}; //index 2 = 2 r2
+ instMem[17]=   { `PAIR, `IMMB,  (5'h04), (5'h05), `MVR}; //boundary = 4 r5
+ instMem[18]=   {` PAIR,`REGB,  (5'h01), (5'h03), `LDR};  //load array item 1 value into r3
+ instMem[19]=   { `PAIR, `REGB,  (5'h02), (5'h04), `LDR};  //load array item 2 value into r4
+ instMem[20]=   `NOPS;
+ instMem[21]=   {`SINGLE, `IMMB,  (5'h01), (5'h03), `SHIFTL}; //shift left 1
+ instMem[22]=   {`SINGLE, `IMMB,  (5'h01), (5'h04), `SHIFTL}; //shift left 1
+ instMem[23]=   {`PAIR  ,`REGB,  (5'h01), (5'h03), `STR}; //Store item 1
+ instMem[24]=   {`SINGLE,`REGB,  (5'h02), (5'h04), `STR}; //Store item 2
+ instMem[25]=   {`PAIR,  `REGB,  (5'h01), (5'h05), `BEQ}; //does index 1 = boundary
+ instMem[26]=   16'h001F;											 //if yes jump out
+ instMem[27]=   {`PAIR,  `IMMB,  (5'h01), (5'h01), `ADDR}; //increment index 1
+ instMem[28]=   {`SINGLE,`IMMB,  (5'h01), (5'h02), `ADDR}; //increment index 2
+ instMem[29]=   {`PAIR,  `REGB,  (5'h00), (5'h00), `BEQ}; //unconditional jump
+ instMem[30]=   16'h0013;
+ instMem[31]=   {`PAIR,  `REGB,  (5'h00), (5'h00), `BEQ}; //unconditional jump
+ instMem[32]=   16'h001F;
  */
  
 
-
-//LDA load + store test
+//LDR load + store test
 /*
   dataMem[22] = 16'hff11;
-  instMem[0] = {`PAIR, `IMMB,   (5'h00), (5'h1A), `LDA}; //place addres value 0x0010 -> r26
-  instMem[1] = {16'h0010};
-  instMem[2] = `NOPS;
-  instMem[3] = {`SINGLE, `REGB,   (5'h1A), (5'h1A), `STR}; //place value 0x1f in the addres of r26
-  instMem[4] = {`PAIR, `IMMB,   (5'h00), (5'h0A), `LDA}; //place addres value 0x0010 -> r26
-  instMem[5] = {16'h0016};
-  instMem[6] = `NOPS;
-  instMem[7] = {`PAIR, `REGB,   (5'h0A), (5'h0B), `LDR}; //read address from r10 -> r11
+  instMem[0] = {`PAIR,  `IMMB,   (5'h0A), (5'h01), `MVR}; //place addres value 0x000A -> r1
+  instMem[1] = {`SINGLE,`IMMB,   (5'h05), (5'h02), `MVR}; //place addres value 0x000A -> r10  
+  instMem[2] = {`PAIR,  `REGB,   (5'h01), (5'h02), `STR}; //place value 0x1f in the addres of r26
+  instMem[3] = {`SINGLE,`REGB,   (5'h02), (5'h01), `STR}; //place value 0x1f in the addres of r26
+  instMem[4] = {`PAIR,  `REGB,   (5'h02), (5'h02), `LDR}; //read address from r10 -> r11
+  instMem[5] = {`SINGLE,`REGB,   (5'h01), (5'h01), `LDR}; //read address from r10 -> r11
+  
+ */
   //instMem[4] = {`SINGLE, `IMMB, (5'h1f), (5'h1A), `STR}; //place value 0x1f in the addres of r26
-  */
+ 
 
 
   //MVR test
@@ -210,9 +258,9 @@ reg[6:0] i;
  instMem[1] = 16'h0004;
  instMem[2] = {`PAIR, `REGB,  (5'h00), (5'h02), `LDA};
  instMem[3] = 16'h0010;
- */
+ */ 
  //BEQ test
- 
+ /*
   dataMem[7] = 16'h0005;
   dataMem[26] = 16'h000F;
   instMem[0] = `NOPS;
@@ -228,7 +276,7 @@ reg[6:0] i;
   instMem[10] = {`PAIR, `REGB, (5'h00), (5'h00),`BEQ};
   instMem[11] = 16'h0007;
   instMem[12] = `NOPS;
- 
+ */
  //
  //dual issue test
  /*
@@ -276,11 +324,7 @@ reg[6:0] i;
  /*
   instMem[0] = {`SINGLE, `IMMB, (5'h01),(5'h01),`MVR};
   instMem[1] = {`PAIR, `IMMB, (10'h3E8) ,`MVI};
-  instMem[2] = {`SINGLE, `IMMB,(10'h3E7) ,`MVR};
-  instMem[3] = {`PAIR, `IMMB, (5'h00),(5'h01),`LDA};
-  instMem[4] = 16'h0007;
-  instMem[5] = {`PAIR, `IMMB, (5'h00),(5'h02),`LDA};
-  instMem[6] = 16'h001A;
+  instMem[2] = {`SINGLE, `IMMB,(5'h1F),(5'h02),`MVR};
   */
  //set registers to values 
  /*

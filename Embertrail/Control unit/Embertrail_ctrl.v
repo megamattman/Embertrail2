@@ -63,7 +63,9 @@ output wire oData2BusEn
     inst1BImm,
     inst2BImm,
     dualInst,
-	 validSI;	 
+	 validSI,
+	 registerWB1,
+	 registerWB2;	 
 	 
   wire [3:0]
     inst1OpCode,
@@ -163,6 +165,10 @@ output wire oData2BusEn
   //extend instruction operand
   assign instExAddr		  =iIR[31:16];
   
+//register writeback control
+  assign registerWB1 = rfWritePort1EX;
+  assign registerWB2 = rfWritePort2EX;
+  
 //PC output
   assign oInstAddrBus = NPC ;
 
@@ -190,13 +196,13 @@ register_file RF (
   .iReadPort2A(rfReadPort2A),
   .iReadPort2B(~inst2BImm),
 
-  .iWritePort1(rfWritePort1EX),
-  .iWritePort2(rfWritePort2EX),
+  .iWritePort1(registerWB1),
+  .iWritePort2(registerWB2),
   
 //read ports
   .iRegReadSel1A(inst1OpA),
   .iRegReadSel1B(inst1OpB),
-  .iRegReadSel2A(rfRead2A),
+  .iRegReadSel2A(inst2OpA),
   .iRegReadSel2B(inst2OpB),
   	
   .oRead1AData(inst1AReadData),
@@ -287,7 +293,7 @@ always@(posedge iClock) begin
   	       end
   	     `LDR:
   	       begin
-  	 	      noAluA1 = 1;		  
+  	 	      noAluB1 = 1;		  
   	 	      rfWritePort1EX = 1;
   	         alu1Op = `ALU_ADD;	 
             inst1Mem = 1;        
@@ -384,6 +390,7 @@ always@(posedge iClock) begin
   else if (opStage[5]) begin
   //rfWriteData1 = 0;
   //Write back to registers, using memory data or aluOutput
+  if (!inst1Branch) begin  
     if (~inst1MemRW & inst1Mem) begin
 	   rfWriteData1 = {inst1OpA,iDataDataBus[15:0]};
 	 end
@@ -392,7 +399,8 @@ always@(posedge iClock) begin
 	 end
 	 else begin	   
 	   rfWriteData1 = {inst1OpA,alu1Result};
-    end	
+    end
+	end 
    end
   else begin
       //first set all signals to zero!
@@ -420,7 +428,7 @@ end
 always@(posedge iClock) begin
 //initialise second side
   if (validSI) begin 
-    if (opStage[2]) begin
+    if (opStage[2]) begin	   
 	    case (inst2OpCode)	
   	     `ADDR:
 	       begin	
@@ -469,10 +477,10 @@ always@(posedge iClock) begin
 	       end
 	     `LDR:
 	        begin
-	         noAluA2 = 1;
+	         noAluB2 = 1;
 	         rfWritePort2EX = 1;
-	          alu2Op = `ALU_ADD;	
-             inst2Mem = 1;			 
+	         alu2Op = `ALU_ADD;	
+            inst2Mem = 1;			 
 	         inst2Len = `THREE_CYCLE;
 	       end
 	     `STR:
@@ -512,8 +520,8 @@ always@(posedge iClock) begin
 //access memory with the PC??
 //Determine A operand to send to ALU  
       //OPA MUX1 - address with explicit oir implicit operands
-      rfReadPort2A = 1;
-      if (inst2ImmInst ) begin
+    
+     if (inst2ImmInst ) begin
         rfRead2A = `IMMEDIATE_REGISTER;
       end
       else begin
@@ -536,7 +544,7 @@ always@(posedge iClock) begin
         alu2OpB = {11'b0, inst2OpB};		//use the reg sel value as small imm	  
       end	
 	   else if (noAluB2) begin
-        alu2OpB = 16'b0;
+        alu2OpB = 16'b0000;
 	   end
       else begin 
        alu2OpB = inst2BReadData;
@@ -559,7 +567,7 @@ always@(posedge iClock) begin
     end //opstage[5]
     else begin
       rfWritePort2EX = 0;  
-      rfReadPort2A = 0; 
+      rfReadPort2A = 1; 
       inst2ImmInst = 0;
       rfWriteData2 = 0;
       alu2Op = `ALU_ADD;
@@ -578,7 +586,7 @@ always@(posedge iClock) begin
   end//ValidSI
   else begin
     rfWritePort2EX = 0;  
-    rfReadPort2A = 0; 
+    rfReadPort2A = 1; 
     inst2ImmInst = 0;
     rfWriteData2 = 0;
     alu2Op = `ALU_ADD;
@@ -595,7 +603,7 @@ always@(posedge iClock) begin
     inst2MemRW = 0;    
   end  
 end // always@(*)
-
+//program counter
 always @(posedge iClock) begin
   if (iReset) begin
     NPC = 0;
@@ -616,11 +624,7 @@ always @(posedge iClock) begin
     opStage = opStage << 1;
   end
 end
-//decodes and sets signal for instruction 2
-//--decode instruction only if valid
-//--check if extedned instruction
 
-//stage flops
 endmodule
 
 
