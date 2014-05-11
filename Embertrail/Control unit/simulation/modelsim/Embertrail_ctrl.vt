@@ -319,6 +319,48 @@ dataMem[4] = 16'h0007;
   */
  //
    
+	//LCD screen demo test
+	instMem[1] = {`PAIR,   `IMMB, (5'h01),(5'h04),`MVR};
+	instMem[2] = {`SINGLE, `IMMB, (5'h00),(5'h03),`MVR};
+	instMem[3] = {`PAIR,   `IMMB, (5'h01),(5'h02),`MVR};
+	instMem[4] = {`SINGLE, `IMMB, (5'h10),(5'h05),`MVR};
+	instMem[5] = {`PAIR,   `IMMB, (5'h00),(5'h01),`LDA};
+	instMem[6] = 16'h8000;
+	instMem[7] = {`PAIR,   `REGB, (5'h01),(5'h06),`MVR};
+	instMem[8] = {`SINGLE, `IMMB, (5'h01),(5'h07),`MVR};
+	//direction check
+	instMem[9] = {`PAIR,   `IMMB, (5'h01),(5'h07),`BEQ};
+	instMem[10] = 16'h000F;//direction = 0 shift
+	//direction = 1 shift
+	instMem[11] = {`SINGLE, `IMMB, (5'h01),(5'h01),`SHIFTR};
+	instMem[12] = {`SINGLE, `IMMB, (5'h01),(5'h02),`SHIFTL};
+	instMem[13] = {`PAIR,   `REGB, (5'h00),(5'h00),`BEQ};
+	instMem[14] = 16'h0011; //Stores address
+	//direction = 0 shift
+	instMem[15] = {`SINGLE, `IMMB, (5'h01),(5'h01),`SHIFTL};
+	instMem[16] = {`SINGLE, `IMMB, (5'h01),(5'h02),`SHIFTR};
+	//write values to memory
+	instMem[17] = {`PAIR, `IMMB, (5'h04),(5'h01),`STR};
+	instMem[18] = {`SINGLE, `IMMB, (5'h04),(5'h02),`STR};
+	//direction checking
+	instMem[19] = {`PAIR  , `IMMB, (5'h00),(5'h07),`BEQ};
+	instMem[20] = 16'h0019;//jump to direction 0 boundary checking
+	//direction 1 boundary checking
+	instMem[21] = {`PAIR  , `IMMB, (5'h01),(5'h01),`BEQ};
+	instMem[22] = 16'h1D//Jump to change directions
+	//return to shift
+	instMem[23] = {`PAIR  , `IMMB, (5'h00),(5'h00),`BEQ};
+	instMem[24] = 16'h000B;  //back to direction 1 shift
+	//direction 0 boundary check
+	instMem[25] = {`PAIR  , `IMMB, (5'h07),(5'h01),`BEQ};
+	instMem[26] = 16'h001D;//jump to change directions
+	//return to move
+	instMem[27] = {`PAIR  , `IMMB, (5'h00),(5'h00),`BEQ};
+	instMem[28] = 16'h000F
+	//change direction
+	instMem[29] = {`SINGLE, `IMMB, (5'h01),(5'h07),`ANDI};
+	instMem[30] = {`PAIR  , `IMMB, (5'h07),(5'h01),`BEQ};
+	instMem[31] = 16'h0009//jump to direction check	
  
  //MVR test 1
  /*

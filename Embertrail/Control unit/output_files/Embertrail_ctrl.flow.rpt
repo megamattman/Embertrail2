@@ -1,0 +1,135 @@
+Flow report for Embertrail_ctrl
+Fri May 09 17:25:54 2014
+Quartus II 32-bit Version 11.1 Build 216 11/23/2011 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------+
+; Flow Summary                                                                       ;
++------------------------------------+-----------------------------------------------+
+; Flow Status                        ; Successful - Fri May 09 17:25:54 2014         ;
+; Quartus II 32-bit Version          ; 11.1 Build 216 11/23/2011 SP 1 SJ Web Edition ;
+; Revision Name                      ; Embertrail_ctrl                               ;
+; Top-level Entity Name              ; Embertrail_top                                ;
+; Family                             ; Cyclone III                                   ;
+; Device                             ; EP3C16F484C6                                  ;
+; Timing Models                      ; Final                                         ;
+; Total logic elements               ; 2,658 / 15,408 ( 17 % )                       ;
+;     Total combinational functions  ; 2,651 / 15,408 ( 17 % )                       ;
+;     Dedicated logic registers      ; 1,246 / 15,408 ( 8 % )                        ;
+; Total registers                    ; 1246                                          ;
+; Total pins                         ; 166 / 347 ( 48 % )                            ;
+; Total virtual pins                 ; 0                                             ;
+; Total memory bits                  ; 0 / 516,096 ( 0 % )                           ;
+; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                               ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                                 ;
++------------------------------------+-----------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 05/09/2014 17:24:58 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; Embertrail_ctrl     ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                  ;
++--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
+; Assignment Name                      ; Value                                  ; Default Value   ; Entity Name    ; Section Id     ;
++--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 24288876537883.139965269803424         ; --              ; --             ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --              ; --             ; ctrl_test      ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ctrl_test                              ; --              ; --             ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --              ; --             ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>          ; --             ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --              ; --             ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/Embertrail_ctrl.vt ; --              ; --             ; ctrl_test      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ctrl_test                              ; --              ; --             ; ctrl_test      ;
+; EDA_TEST_BENCH_NAME                  ; ctrl_test                              ; --              ; --             ; eda_simulation ;
+; EDA_TIME_SCALE                       ; 1 ns                                   ; --              ; --             ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --              ; --             ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --              ; --             ; --             ;
+; PARTITION_COLOR                      ; 16764057                               ; --              ; Embertrail_top ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                  ; --              ; Embertrail_top ; Top            ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                 ; --              ; Embertrail_top ; Top            ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --              ; --             ; --             ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --              ; --             ; --             ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --              ; --             ; --             ;
+; TOP_LEVEL_ENTITY                     ; Embertrail_top                         ; Embertrail_ctrl ; --             ; --             ;
++--------------------------------------+----------------------------------------+-----------------+----------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 308 MB              ; 00:00:12                           ;
+; Fitter                    ; 00:00:16     ; 1.0                     ; 418 MB              ; 00:00:13                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 315 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:12     ; 1.0                     ; 329 MB              ; 00:00:08                           ;
+; EDA Netlist Writer        ; 00:00:08     ; 1.0                     ; 288 MB              ; 00:00:05                           ;
+; Total                     ; 00:00:54     ; --                      ; --                  ; 00:00:40                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; Mattop           ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; Mattop           ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; Mattop           ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; Mattop           ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; Mattop           ; Windows 7 ; 6.2        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
+quartus_fit --read_settings_files=off --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
+quartus_asm --read_settings_files=off --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
+quartus_sta Embertrail_ctrl -c Embertrail_ctrl
+quartus_eda --read_settings_files=off --write_settings_files=off Embertrail_ctrl -c Embertrail_ctrl
+
+
+
