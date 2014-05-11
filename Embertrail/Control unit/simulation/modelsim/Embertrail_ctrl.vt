@@ -60,7 +60,7 @@ wire [15:0] PC;
 reg clock;
 reg reset;
 //small pseudo instruciton memory
-reg [15:0] instMem [34:0];
+reg [15:0] instMem [38:0];
 
 //small pseudo data memory
 reg [15:0] dataMem [31:0];
@@ -199,28 +199,50 @@ dataMem[4] = 16'h0007;
  instMem[12] =   {  `PAIR,`IMMB,  (5'h10), (5'h01), `MVR}; 
  instMem[13] =   {`SINGLE,`IMMB,  (5'h05), (5'h02), `MVR}; 
  instMem[14] =   {`SINGLE,`REGB,  (5'h02), (5'h01), `STR}; 
+ */
+ dataMem[0]  = 16'h000F;
+ dataMem[1]  = 16'h0001;
+ dataMem[2]  = 16'h0002;
+ dataMem[3]  = 16'h0003;
+ dataMem[4]  = 16'h0004;
+ dataMem[5]  = 16'h0005;
+ dataMem[6]  = 16'h0006;
+ dataMem[7]  = 16'h0007;
+ dataMem[8]  = 16'h0008;
+ dataMem[9]  = 16'h0009;
+ dataMem[10] = 16'h000A;
+ dataMem[11] = 16'h000B;
+ dataMem[12] = 16'h000C;
+ dataMem[13] = 16'h000D;
+ dataMem[14] = 16'h000E;
+ dataMem[15] = 16'h000F;
+ dataMem[16] = 16'h0010;
+ 
+ 
+ 
  
 //end intialisation
 //main program
- instMem[15]=   { `PAIR, `IMMB,  (5'h01), (5'h01), `MVR};  //index = 1 r1
- instMem[16]=   {`SINGLE,`IMMB,  (5'h02), (5'h02), `MVR}; //index 2 = 2 r2
- instMem[17]=   { `PAIR, `IMMB,  (5'h04), (5'h05), `MVR}; //boundary = 4 r5
- instMem[18]=   {` PAIR,`REGB,  (5'h01), (5'h03), `LDR};  //load array item 1 value into r3
- instMem[19]=   { `PAIR, `REGB,  (5'h02), (5'h04), `LDR};  //load array item 2 value into r4
- instMem[20]=   `NOPS;
- instMem[21]=   {`SINGLE, `IMMB,  (5'h01), (5'h03), `SHIFTL}; //shift left 1
- instMem[22]=   {`SINGLE, `IMMB,  (5'h01), (5'h04), `SHIFTL}; //shift left 1
- instMem[23]=   {`PAIR  ,`REGB,  (5'h01), (5'h03), `STR}; //Store item 1
- instMem[24]=   {`SINGLE,`REGB,  (5'h02), (5'h04), `STR}; //Store item 2
- instMem[25]=   {`PAIR,  `REGB,  (5'h01), (5'h05), `BEQ}; //does index 1 = boundary
- instMem[26]=   16'h001F;											 //if yes jump out
- instMem[27]=   {`PAIR,  `IMMB,  (5'h01), (5'h01), `ADDR}; //increment index 1
- instMem[28]=   {`SINGLE,`IMMB,  (5'h01), (5'h02), `ADDR}; //increment index 2
- instMem[29]=   {`PAIR,  `REGB,  (5'h00), (5'h00), `BEQ}; //unconditional jump
- instMem[30]=   16'h0013;
- instMem[31]=   {`PAIR,  `REGB,  (5'h00), (5'h00), `BEQ}; //unconditional jump
- instMem[32]=   16'h001F;
- */
+ instMem[0] =   { `PAIR,  `IMMB,  (5'h01), (5'h01), `MVR};     //index = 1 r1
+ instMem[1] =   {`SINGLE, `IMMB,  (5'h02), (5'h02), `MVR};     //index 2 = 2 r2
+ instMem[2] =   {`PAIR,   `IMMB,  (5'h00), (5'h05), `LDR};     //boundary = 4 r5
+ instMem[3] =   {`SINGLE, `REGB,  (5'h01), (5'h03), `LDR};    //load array item 1 value into r3
+ instMem[4] =   {`SINGLE, `REGB,  (5'h02), (5'h04), `LDR};   //load array item 2 value into r4 
+ instMem[5] =   {`SINGLE, `IMMB,  (5'h01), (5'h03), `SHIFTL}; //shift left 1 
+ instMem[6] =   {`SINGLE, `IMMB,  (5'h01), (5'h04), `SHIFTL}; //shift left 1
+ instMem[7] =   {`PAIR,   `IMMB,  (5'h01), (5'h03), `ADDR};     //add 1 to item 2
+ instMem[8] =   {`SINGLE, `IMMB,  (5'h01), (5'h04), `ADDR};   //add 1 to item 2
+ instMem[9] =   {`PAIR  , `REGB,  (5'h01), (5'h03), `STR};     //Store item 1
+ instMem[10]=   {`SINGLE, `REGB,  (5'h02), (5'h04), `STR};     //Store item 2
+ instMem[11]=   {`PAIR,   `REGB,  (5'h01), (5'h05), `BEQ};     //does index 1 = boundary
+ instMem[12]=   16'h0011;											     //if yes jump out
+ instMem[13]=   {`PAIR,  `IMMB,  (5'h02), (5'h01), `ADDR};    //increment index 1
+ instMem[14]=   {`SINGLE,`IMMB,  (5'h02), (5'h02), `ADDR};    //increment index 2
+ instMem[15]=   {`PAIR,  `REGB,  (5'h00), (5'h00), `BEQ};     //unconditional jump
+ instMem[16]=   16'h0003;
+ instMem[17]=   {`PAIR,  `REGB,  (5'h00), (5'h00), `BEQ};     //unconditional jump
+ instMem[18]=   16'h0011;
+ 
  
 
 //LDR load + store test
@@ -312,13 +334,13 @@ dataMem[4] = 16'h0007;
  //alu ADD test
  /*
   instMem[0] = {`SINGLE, `IMMB, (5'h01),(5'h01),`MVR};
-  instMem[1] = {`SINGLE, `IMMB, (5'h01),(5'h02),`MVR};
-  instMem[2] = {`SINGLE, `REGB, (5'h02),(5'h01),`ADDR};
+  instMem[1] = {`SINGLE, `IMMB, (5'h08),(5'h02),`MVR};
+  instMem[2] = {`SINGLE, `REGB, (5'h02),(5'h01),`ANDI};
   instMem[3] = {`PAIR, `REGB, (5'h00), (5'h00),`BEQ};
   instMem[4] = {16'h0003};
   */
  //
-   
+  /*
 	//LCD screen demo test
 	instMem[1] = {`PAIR,   `IMMB, (5'h01),(5'h04),`MVR};
 	instMem[2] = {`SINGLE, `IMMB, (5'h00),(5'h03),`MVR};
@@ -329,39 +351,45 @@ dataMem[4] = 16'h0007;
 	instMem[7] = {`PAIR,   `REGB, (5'h01),(5'h06),`MVR};
 	instMem[8] = {`SINGLE, `IMMB, (5'h01),(5'h07),`MVR};
 	//direction check
-	instMem[9] = {`PAIR,   `IMMB, (5'h01),(5'h07),`BEQ};
+	instMem[9] = {`PAIR,   `IMMB, (5'h00),(5'h07),`BEQ};
 	instMem[10] = 16'h000F;//direction = 0 shift
 	//direction = 1 shift
 	instMem[11] = {`SINGLE, `IMMB, (5'h01),(5'h01),`SHIFTR};
-	instMem[12] = {`SINGLE, `IMMB, (5'h01),(5'h02),`SHIFTL};
-	instMem[13] = {`PAIR,   `REGB, (5'h00),(5'h00),`BEQ};
-	instMem[14] = 16'h0011; //Stores address
+	instMem[12] = {`PAIR  , `IMMB, (5'h01),(5'h02),`SHIFTL};
+	instMem[13] = {`SINGLE, `IMMB, (5'h01),(5'h02),`ADDR};
+	instMem[14] = {`PAIR,   `REGB, (5'h00),(5'h00),`BEQ};
+	instMem[15] = 16'h0011; //Stores address
 	//direction = 0 shift
-	instMem[15] = {`SINGLE, `IMMB, (5'h01),(5'h01),`SHIFTL};
-	instMem[16] = {`SINGLE, `IMMB, (5'h01),(5'h02),`SHIFTR};
+	instMem[16] = {`PAIR, `IMMB, (5'h01),(5'h01),`SHIFTL};
+	instMem[17] = {`SINGLE, `IMMB, (5'h01),(5'h01),`ADDR};
+	instMem[18] = {`SINGLE, `IMMB, (5'h01),(5'h02),`SHIFTR};
 	//write values to memory
-	instMem[17] = {`PAIR, `IMMB, (5'h04),(5'h01),`STR};
-	instMem[18] = {`SINGLE, `IMMB, (5'h04),(5'h02),`STR};
-	//direction checking
-	instMem[19] = {`PAIR  , `IMMB, (5'h00),(5'h07),`BEQ};
-	instMem[20] = 16'h0019;//jump to direction 0 boundary checking
+	instMem[19] = {`PAIR, `REGB, (5'h04),(5'h01),`STR};
+	instMem[20] = {`SINGLE, `REGB, (5'h04),(5'h02),`STR};
+	//Check direction 0
+	instMem[21] = {`PAIR  , `IMMB, (5'h00),(5'h07),`BEQ};
+	instMem[22] = 16'h0019;//jump to direction 0 boundary checking
 	//direction 1 boundary checking
-	instMem[21] = {`PAIR  , `IMMB, (5'h01),(5'h01),`BEQ};
-	instMem[22] = 16'h1D//Jump to change directions
+	instMem[23] = {`PAIR  , `IMMB, (5'h01),(5'h01),`BEQ};
+	instMem[24] = 16'h001D;//Jump to change direction to 0
 	//return to shift
-	instMem[23] = {`PAIR  , `IMMB, (5'h00),(5'h00),`BEQ};
-	instMem[24] = 16'h000B;  //back to direction 1 shift
+	instMem[25] = {`PAIR  , `IMMB, (5'h00),(5'h00),`BEQ};
+	instMem[26] = 16'h000B;  //back to direction 1 shift
 	//direction 0 boundary check
-	instMem[25] = {`PAIR  , `IMMB, (5'h07),(5'h01),`BEQ};
-	instMem[26] = 16'h001D;//jump to change directions
+	instMem[27] = {`PAIR  , `REGB, (5'h06),(5'h01),`BEQ};
+	instMem[28] = 16'h0020;//jump to change direction to 1
 	//return to move
-	instMem[27] = {`PAIR  , `IMMB, (5'h00),(5'h00),`BEQ};
-	instMem[28] = 16'h000F
-	//change direction
-	instMem[29] = {`SINGLE, `IMMB, (5'h01),(5'h07),`ANDI};
-	instMem[30] = {`PAIR  , `IMMB, (5'h07),(5'h01),`BEQ};
-	instMem[31] = 16'h0009//jump to direction check	
- 
+	instMem[29] = {`PAIR  , `IMMB, (5'h00),(5'h00),`BEQ};
+	instMem[30] = 16'h000F;
+	//change direction to 0	
+	instMem[31] = {`SINGLE, `IMMB, (5'h00),(5'h07),`MVR};
+	instMem[32] = {`PAIR  , `REGB, (5'h00),(5'h00),`BEQ};
+	instMem[33] = 16'h0009;//jump to direction check	
+	//change direction to 1
+	instMem[34] = {`SINGLE, `IMMB, (5'h01),(5'h07),`MVR};
+	instMem[35] = {`PAIR  , `REGB, (5'h00),(5'h00),`BEQ};
+	instMem[36] = 16'h0009;//jump to direction check	
+ */
  //MVR test 1
  /*
   instMem[0] = {`SINGLE, `IMMB, (5'h01),(5'h01),`MVR};

@@ -138,6 +138,8 @@ output wire oData2BusEn
     alu2OpB      =0,    
 	 memData1Addr =0,
 	 memData2Addr =0,
+	 memDataData1 =0,
+	 memDataData2 =0,
     NPC          =0;	 
    
 	 
@@ -175,8 +177,8 @@ output wire oData2BusEn
 //memery address output
   assign oDataAddrBus[15:0] = (!inst1StackOp) ? (inst1BReadData) : (stackPointer);   
   assign oDataAddrBus[31:16] = (!inst2StackOp) ? (inst2BReadData) : (stackPointer);  
-  assign oDataDataBus[15:0] = (inst1MemRW)? (alu1Result) : (16'bx);
-  assign oDataDataBus[31:16] = (inst2MemRW)? (alu2Result) : (16'bx);
+  assign oDataDataBus[15:0] = memDataData1;//alu1Result; //(inst1MemRW)? (alu1Result) : (16'bx);
+  assign oDataDataBus[31:16] = memDataData2; //alu2Result; //(inst2MemRW)? (alu2Result) : (16'bx);
   assign oData1BusEn = inst1Mem;
   assign oData2BusEn = inst2Mem;
   assign oDataMem1RW = inst1MemRW;
@@ -385,7 +387,7 @@ always@(posedge iClock) begin
     end
   end // opstage 3
   else if (opStage[4]) begin
-    dumbWire = 1'b1;
+    memDataData1 = (inst1MemRW)? (alu1Result) : (memDataData1);
   end
   else if (opStage[5]) begin
   //rfWriteData1 = 0;
@@ -550,9 +552,9 @@ always@(posedge iClock) begin
        alu2OpB = inst2BReadData;
       end		
     end // opstage[3]
-	 else if (opStage[4]) begin 
-      dumbWire = 1'b1;
-    end		
+	 else if (opStage[4]) begin     
+		memDataData2 = (inst2MemRW)? (alu2Result) : memDataData2;
+    end
 	 else if (opStage[5]) begin	
 	//Write back to registers, using memory data or aluOutput 
 	     if (~inst2MemRW & inst2Mem) begin

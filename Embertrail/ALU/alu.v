@@ -56,11 +56,11 @@ module alu (
   		    end
   		`ALU_SL:
   	     begin
-  		    aluOutput_d = iOperandA << iOperandB;
+  		    aluOutput_d = iOperandA << 1;
   		  end
   		`ALU_SR:
-  	     begin
-  		    aluOutput_d = iOperandA >> iOperandB;
+  	     begin			
+  		    aluOutput_d = iOperandA >> 1;
   		  end
   		`ALU_CMP:
   	     begin

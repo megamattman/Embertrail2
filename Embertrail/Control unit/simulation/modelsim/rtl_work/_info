@@ -4,10 +4,10 @@ K3
 cModel Technology
 Z0 dC:\Users\Matt\Documents\GitHub\Embertrail2\Embertrail\Control unit\simulation\modelsim
 valu
-IJjll;_le_K;6d?4kPH0f01
+INP>mD^;g^5dl_A;GE5:8J3
 VQVXIhcoNWd`KP^bmG?zA12
 Z1 dC:\Users\Matt\Documents\GitHub\Embertrail2\Embertrail\Control unit\simulation\modelsim
-w1395941964
+w1399837463
 8C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
 FC:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v
 L0 16
@@ -16,18 +16,18 @@ r1
 31
 Z3 o-vlog01compat -work work -O0
 !i10b 1
-!s100 ?_?D9lnncIejfiLc_N[L80
+!s100 oQf]C6Fc0]=J2:hPneDQX3
 !s85 0
-!s108 1396802240.620000
+!s108 1399840549.667000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU/alu.v|
 !s101 -O0
 !s92 -vlog01compat -work work +incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/ALU -O0
 vEmbertrail_ctrl
-IEAX:>J2jW`TV9<KzfNER@3
+I5`ZKohgQnf@`8TR;KmG8:3
 VHgCKC_jl<GAka^><FO7kG3
 R1
-w1396788392
+w1399831404
 8C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v
 FC:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v
 L0 39
@@ -37,18 +37,18 @@ r1
 R3
 n@embertrail_ctrl
 !i10b 1
-!s100 bIBazoj6@4lQfUG?NI:RP2
+!s100 Cn8YU2:7G`g4[M?XA`T[>3
 !s85 0
-!s108 1396802240.708000
+!s108 1399840549.750000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/Embertrail_ctrl.v|
 !s101 -O0
 !s92 -vlog01compat -work work {+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit} -O0
 vEmbertrail_ctrl_vlg_tst
-IL`d7EA83hA_dONQnzc2j52
+Ii?UIN91fH[P2W3Zch[OPl3
 V4TV2ncFQNPFg@laGA44Q]0
 R1
-w1396802231
+w1399840544
 8C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt
 FC:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt
 L0 53
@@ -58,9 +58,9 @@ r1
 R3
 n@embertrail_ctrl_vlg_tst
 !i10b 1
-!s100 0_6B9zjPWeWQ?`R[`m[^n0
+!s100 @0zm5C<gO3oX6YO49A7WI0
 !s85 0
-!s108 1396802240.832000
+!s108 1399840549.932000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Control unit/simulation/modelsim/Embertrail_ctrl.vt|
 !s101 -O0
@@ -69,7 +69,7 @@ vEmbertrail_top
 Ii]MVeV1ZaZ@?V20Q3S[h=3
 Vkg`LWiOaVFei4N237CCNA0
 R1
-w1395249225
+Z4 w1399829743
 8C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
 FC:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v
 L0 3
@@ -81,7 +81,7 @@ n@embertrail_top
 !i10b 1
 !s100 _heB4KFhN`Vh7@@2P_;?Q3
 !s85 0
-!s108 1396802240.962000
+!s108 1399840550.102000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/Embtertrail_Top/Embertrail_top.v|
 !s101 -O0
@@ -92,7 +92,7 @@ vregister_file
 IFAgfX96YSi4XaS<04magA2
 VkXT8^amiCO0lb`;RAXJ=D1
 R1
-w1396786030
+R4
 8C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
 FC:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v
 L0 3
@@ -100,7 +100,7 @@ R2
 r1
 !s85 0
 31
-!s108 1396802241.074000
+!s108 1399840550.227000
 !s107 C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile|-O0|C:/Users/Matt/Documents/GitHub/Embertrail2/Embertrail/RegisterFile/registerFile.v|
 !s101 -O0

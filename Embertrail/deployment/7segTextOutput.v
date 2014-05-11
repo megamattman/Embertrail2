@@ -9,6 +9,12 @@
 
 module seg7TextOutput (
 input wire iControl_signal, 
+input wire iDemo_signal,
+input wire [7:0] iDataBus1A,
+input wire [7:0] iDataBus1B,
+input wire [7:0] iDataBus2A,
+input wire [7:0] iDataBus2B,
+
 output wire[7:0] oChar1, 
 output wire[7:0] oChar2, 
 output wire[7:0] oChar3, 
@@ -32,6 +38,12 @@ always@(*) begin
 	 char2 = `CHAR_S;
 	 char3 = `CHAR_T;
 	 char4 = `CHAR_BLANK;
+  end
+  if (iDemo_signal) begin
+    char1 = iDataBus1A;
+	 char2 = iDataBus1B;
+	 char3 = iDataBus2A;
+	 char4 = iDataBus2B;
   end
   else begin
     char1 = `CHAR_ONE;
