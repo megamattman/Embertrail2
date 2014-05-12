@@ -1,0 +1,22 @@
+//Data crunching demo program
+//for this there is some data already initialised in data memory
+//Address:Data
+//0:0x000F, 1:0x0001, 2:0x0002, 3:0x0003, 4:0x0004, 5:0x0005, 
+//6:0x0006, 7:0x0007, 8:0x0008, 9:0x0009, 10:0x000A, 11:0x000B, 
+//12:0x000C, 13:0x000D, 14:0x000E, 15:0x000F, 16:0x0010
+
+//The program uses the following registers
+//r1 = item 1 index, r2 = item 2 index, 
+//r3 = item 1, r4 = item 2, r5 = boundry
+
+ 1.) MVR r2, #2 ; MVR r1, #1
+ 2.) LDR r5, r0 
+ 3.) LDR r4, r2 ; LDR r3, r1
+ 4.) SHIFTL r3, #1
+ 5.) SHIFTL r4, #1
+ 6.) ADDR r3, #1, ADDR r4, #1
+ 7.) STR r3, r1 ; STR r4, r2
+ 8.) BEQ r1, r5 ; 0x000B       //if boundry met jump to END
+ 9.) ADDR r1, #2 ; ADDR r2, #2
+10.) BEQ r0, r0 ; 0x0003       //load into next values
+11.) END
