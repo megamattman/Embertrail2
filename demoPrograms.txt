@@ -3,42 +3,43 @@
 //the value is then stored
 
 //initialisation
-//r4 is the target memory location
-//r3 is the count register, r5 is the boundary
-//r2 is the low value - this will be shifted up until boundary and then down
-//r1 is the high value - this will be shifted down until 0 and then back up
-//r6 is a copy for boundary checking
-//r7 is direction flag
-MVR r4, #1 ; MVR r3, #0
-MVR r2, #1 ; MVR r5, #16
-LDA r1, #0
-0x8000
-MVR r6, r1 ; MVR r7, #1
+//r4 = target memory location,  r6 = boundary, r2 = low value
+//r1 = high value, r7 is direction flag
+1.) MVR r4, #1 ; MVR r2, #1 ;
+2.) LDA r1, #0 ; 0x8000
+3.) MVR r6, r1 ; MVR r7, #1
 //this point the two target numbers are set R1 = 0x8000 and r2 = 0x0001
-//decide direction of shifts
-BEQ r7, #0
-//jump to other direction 
-SHIFTR r1, #1
-SHIFTL r2, #1
-BEQ r0,r0
-//jump to stores
-//only access this part of code via direction check branch
-SHIFTL r1, #1
-SHIFTR r2, #1
-//store the values, this will effect the display
-STR r2, r4 ; STR r1, r4
-//Check for boundaries
-BEQ r7, #0
-//jump to other direction boundary checking
-BEQ r1, r0
-//jump to direction change
-BEQ r0, r0
-//jump to shifts
-BEQ r1, r6
-//jump to change direction
-BEQ r0 r0
-//jump to shifts
-//Change direction
-ANDR r7, #1 
-BEQ r0, r0
-//jump back to move
+
+//check  direction of shifts
+4.) BEQ r7, #0 ; //jump to other direction 0 shifts
+
+//direction 1 shifts
+5.) SHIFTR r1, #1
+6.) SHIFTL r2, #1
+7.) BEQ r0,r0 ; 0x000A //jump to stores
+
+//direction 0 Shifts
+8.) SHIFTL r1, #1
+9.) SHIFTR r2, #1
+
+//stores the values, this will effect the display
+10.)STR r2, r4 ; STR r1, r4
+
+//Check for direction 0
+11.)BEQ r7, #0 ; 0x000E // jump to direction 0 boundary checking
+
+//direction 1 boundry check
+12.)BEQ r1, r0 ; 0x0010 // jump to change to direction 0
+13.)BEQ r0, r0 ; 0x0005 // jump to direction 1 shifts
+
+//Direction 0 boundry check
+14.)BEQ r1, r6 ; 0x0012 //jump to change direction to 1
+15.)BEQ r0, r0 ; 0x0008 //jump to direction 0 shifts
+
+//Change to direction 0
+16.)MVR r7, #0 
+17.)BEQ r0, r0 ; 0x0008 //jump to direction 0 shifts 
+
+//Change to direction 1
+18.)MVR r7, #1
+19.)BEQ r0, r0 ; 0x0005 //jump to direction 1 shifts
